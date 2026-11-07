@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="apfitNeonGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="55%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="subtleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#7928ca" stop-opacity="0.0" />
+    </linearGradient>
+    <filter id="vectorGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Canvas Background -->
+  <rect width="400" height="400" rx="32" fill="#0b0b0c" />
+  
+  <!-- Subtle Architectural Grid Hairlines -->
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <circle cx="200" cy="200" r="90" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" stroke-dasharray="3 3" />
+  <line x1="200" y1="40" x2="200" y2="360" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+  <line x1="40" y1="200" x2="360" y2="200" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+
+  <!-- Monogram A Group -->
+  <g transform="translate(0, 0)">
+    <!-- Primary Left Monolithic Stem of 'A' -->
+    <path d="M 200 82 L 102 296 L 138 296 L 200 156 L 262 296 L 298 296 Z" 
+          fill="none" 
+          stroke="url(#apfitNeonGrad)" 
+          stroke-width="16" 
+          stroke-linejoin="miter" 
+          stroke-miterlimit="4" />
+
+    <!-- Pure Minimalist Solid Inner Ascending Facet (A-Peak) -->
+    <polygon points="200,118 238,206 162,206" fill="url(#apfitNeonGrad)" fill-opacity="0.14" />
+
+    <!-- Kinetic Floating Horizontal Crossbar / Quantum Telemetry Bridge -->
+    <path d="M 148 226 L 252 226" 
+          stroke="#00f0ff" 
+          stroke-width="10" 
+          stroke-linecap="square" 
+          filter="url(#vectorGlow)" />
+
+    <!-- Pure Apex Vertex Accent -->
+    <circle cx="200" cy="82" r="5" fill="#00f0ff" filter="url(#vectorGlow)" />
+
+    <!-- Modernist Technical Hairline Coordinate Markers -->
+    <rect x="72" y="72" width="12" height="12" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5" />
+    <rect x="316" y="316" width="12" height="12" fill="none" stroke="#7928ca" stroke-width="1.5" stroke-opacity="0.5" />
+    
+    <!-- Micro Monospace Metric Tag -->
+    <text x="200" y="342" 
+          text-anchor="middle" 
+          fill="#a1a1aa" 
+          font-family="'JetBrains Mono', 'SF Mono', monospace" 
+          font-size="11" 
+          font-weight="600" 
+          letter-spacing="0.32em">APFIT // MONOGRAM A.01</text>
+  </g>
+</svg>

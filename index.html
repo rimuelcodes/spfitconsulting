@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>APF IT Consulting // AI, Data Analytics & Digital Transformation</title>
+  
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <style>
+    @layer base { 
+      html, body { margin: 0; padding: 0; } 
+      body { overscroll-behavior: none; } 
+      main > :first-child { margin-top: 0 !important; } 
+      main > :last-child { margin-bottom: 0 !important; } 
+    } 
+    ::-webkit-scrollbar { display: none; } 
+    @keyframes pulse-fast { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } } 
+    .animate-status-pulse { animation: pulse-fast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    
+    .btn-primary-obsidian {
+      background-color: #FFFFFF;
+      color: #0B0B0C;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600;
+      border-radius: 0px;
+      position: relative;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.2);
+    }
+    .btn-primary-obsidian:hover {
+      outline: 1px solid #00F0FF;
+      outline-offset: -2px;
+      box-shadow: 0 0 30px -5px rgba(0, 240, 255, 0.4);
+    }
+    .btn-secondary-obsidian {
+      background: transparent;
+      border: 1px solid #262833;
+      color: #FFFFFF;
+      border-radius: 0px;
+      transition: all 0.25s ease;
+    }
+    .btn-secondary-obsidian:hover {
+      border-color: #7928CA;
+      box-shadow: 0 0 30px -10px rgba(121, 40, 202, 0.5);
+      color: #00F0FF;
+    }
+  </style>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = { 
+      darkMode: "class", 
+      theme: { 
+        extend: { 
+          colors: { 
+            "on-background": "#e5e2e3", 
+            "surface-container-high": "#2a2a2b", 
+            "secondary-fixed-dim": "#00dbe9", 
+            "primary-container": "#7928ca", 
+            "primary-fixed-dim": "#dbb8ff", 
+            "on-tertiary-fixed-variant": "#2f2ebe", 
+            "surface-bright": "#3a393a", 
+            "on-surface": "#e5e2e3", 
+            "error": "#ffb4ab", 
+            "inverse-on-surface": "#313031", 
+            "on-secondary-container": "#00686f", 
+            "on-primary-fixed-variant": "#6600b7", 
+            "surface-container": "#201f20", 
+            "error-container": "#93000a", 
+            "surface-container-lowest": "#0e0e0f", 
+            "on-error-container": "#ffdad6", 
+            "on-secondary": "#00363a", 
+            "tertiary-fixed-dim": "#c0c1ff", 
+            "surface-variant": "#353436", 
+            "on-tertiary-fixed": "#07006c", 
+            "on-secondary-fixed": "#002022", 
+            "on-tertiary": "#1000a9", 
+            "surface": "#131314", 
+            "tertiary": "#c0c1ff", 
+            "outline-variant": "#4c4354", 
+            "surface-tint": "#dbb8ff", 
+            "on-primary-container": "#e1c4ff", 
+            "surface-container-low": "#1c1b1c", 
+            "on-primary": "#470083", 
+            "surface-container-highest": "#353436", 
+            "primary": "#dbb8ff", 
+            "on-error": "#690005", 
+            "secondary-container": "#00eefc", 
+            "secondary": "#d3fbff", 
+            "on-primary-fixed": "#2b0052", 
+            "surface-dim": "#131314", 
+            "secondary-fixed": "#7df4ff", 
+            "inverse-primary": "#7f30d0", 
+            "on-secondary-fixed-variant": "#004f54", 
+            "outline": "#988d9f", 
+            "on-surface-variant": "#cec2d6", 
+            "inverse-surface": "#e5e2e3", 
+            "background": "#131314", 
+            "on-tertiary-container": "#cbcbff", 
+            "tertiary-container": "#4244d0", 
+            "tertiary-fixed": "#e1e0ff",
+            "primary-fixed": "#efdbff"
+          }, 
+          borderRadius: { 
+            "DEFAULT": "0px", 
+            "none": "0px",
+            "sm": "0px",
+            "md": "0px",
+            "lg": "0px", 
+            "xl": "0px", 
+            "full": "9999px" 
+          }, 
+          spacing: { 
+            "space-sm": "0.5rem", 
+            "gutter-desktop": "2.5rem", 
+            "margin-tablet": "2.5rem", 
+            "space-3xl": "6rem", 
+            "space-md": "1rem", 
+            "margin": "1.25rem", 
+            "space-2xl": "4rem", 
+            "space-xl": "2.5rem", 
+            "space-xs": "0.25rem", 
+            "margin-desktop": "5rem", 
+            "gutter": "1.5rem", 
+            "space-lg": "1.5rem" 
+          }, 
+          fontFamily: { 
+            "headline-lg": [ "Sora" ], 
+            "display-hero": [ "Sora" ], 
+            "headline-md": [ "Sora" ], 
+            "label-mono": [ "Geist" ], 
+            "body-sm": [ "Geist" ], 
+            "headline-xl-mobile": [ "Sora" ], 
+            "body-md": [ "Geist" ], 
+            "body-lg": [ "Geist" ], 
+            "label-caps": [ "Sora" ], 
+            "headline-xl": [ "Sora" ], 
+            "display-hero-mobile": [ "Sora" ], 
+            "headline-sm": [ "Sora" ] 
+          }, 
+          fontSize: { 
+            "headline-lg": [ "2rem", { "lineHeight": "1.25", "letterSpacing": "-0.025em", "fontWeight": "500" } ], 
+            "display-hero": [ "4.5rem", { "lineHeight": "1.05", "letterSpacing": "-0.04em", "fontWeight": "600" } ], 
+            "headline-md": [ "1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "500" } ], 
+            "label-mono": [ "0.6875rem", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "500" } ], 
+            "body-sm": [ "0.8125rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" } ], 
+            "headline-xl-mobile": [ "2rem", { "lineHeight": "1.2", "letterSpacing": "-0.025em", "fontWeight": "600" } ], 
+            "body-md": [ "0.9375rem", { "lineHeight": "1.6", "letterSpacing": "-0.005em", "fontWeight": "400" } ], 
+            "body-lg": [ "1.125rem", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" } ], 
+            "label-caps": [ "0.75rem", { "lineHeight": "1.3", "letterSpacing": "0.12em", "fontWeight": "600" } ], 
+            "headline-xl": [ "3rem", { "lineHeight": "1.15", "letterSpacing": "-0.035em", "fontWeight": "600" } ], 
+            "display-hero-mobile": [ "2.75rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "600" } ], 
+            "headline-sm": [ "1.125rem", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" } ] 
+          } 
+        } 
+      } 
+    };
+  </script>
+</head>
+
+<body class="bg-[#131314] font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- ==================== HEADER ==================== -->
+  <!-- ==================== HEADER (iOS 26 Liquid Glass Floating Island) ==================== -->
+  <header class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-7xl rounded-full px-6 py-2.5 backdrop-blur-3xl backdrop-saturate-[2.5] bg-[#121316]/60 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.35),inset_0_-1px_1px_0_rgba(0,0,0,0.4)] transition-all duration-300">
+    <div class="w-full flex items-center justify-between gap-space-md">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img alt="APF IT Monogram" class="h-8 w-8 object-contain shrink-0 drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]" src="images/apf_monogram_transparent.png"/>
+        <div class="flex flex-col">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold group-hover:text-secondary-fixed-dim transition-colors">APF IT</span>
+          <span class="font-label-mono text-[10px] text-outline tracking-widest uppercase">CONSULTING</span>
+        </div>
+      </a>
+      
+      <!-- Nav Pill Menu -->
+      <nav class="hidden xl:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/5 backdrop-blur-md">
+        <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#capabilities">
+          <span class="text-secondary-fixed-dim">01/</span>Capabilities
+        </a>
+        <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#case-studies">
+          <span class="text-secondary-fixed-dim">02/</span>Solutions
+        </a>
+        <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#tech-stack">
+          <span class="text-secondary-fixed-dim">03/</span>Tech Stack
+        </a>
+        <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#methodology">
+          <span class="text-secondary-fixed-dim">04/</span>Methodology
+        </a>
+        <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#about">
+          <span class="text-secondary-fixed-dim">05/</span>About
+        </a>
+      </nav>
+      
+      <!-- Status & CTA -->
+      <div class="flex items-center gap-space-md">
+        <div class="hidden md:flex items-center gap-space-xs px-3 py-1 bg-white/[0.04] border border-white/10 rounded-full backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse inline-block shadow-[0_0_8px_#00dbe9]"></span>
+          <span class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-wider">PROJECTS OPEN</span>
+        </div>
+        
+        <button onclick="toggleModal('engage-modal')" class="relative inline-flex items-center px-5 py-2 rounded-full bg-white text-[#0B0B0C] font-label-caps text-label-caps font-semibold uppercase tracking-wider hover:bg-secondary-fixed-dim hover:text-[#0B0B0C] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all duration-300">
+          <div class="flex items-center gap-1.5">
+            <span>GET IN TOUCH</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full min-h-screen">
+    <div class="flex flex-col w-full">
+      
+      <!-- ==================== SECTION 1: HERO SECTION ==================== -->
+      <section class="relative w-full overflow-hidden bg-surface-container-lowest px-gutter-desktop pt-32 pb-space-3xl lg:pt-36 min-h-screen flex items-center">
+        <!-- Interactive 3D Three.js particle simulation canvas -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none" style="display:block;">
+          <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+          <div id="threejs-container-ANIMATION_5" style="width:100%;height:100%"></div>
+          <script>
+          (function() {
+            const container = document.getElementById('threejs-container-ANIMATION_5');
+            const width = container.clientWidth || window.innerWidth;
+            const height = container.clientHeight || window.innerHeight;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(65, width / height, 0.1, 1000);
+            camera.position.z = 90;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            container.appendChild(renderer.domElement);
+
+            const particleCount = 4200;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const basePositions = new Float32Array(particleCount * 3);
+            const velocities = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+
+            const colorCyan = new THREE.Color(0x00f0ff);
+            const colorViolet = new THREE.Color(0x7928ca);
+            const colorBlue = new THREE.Color(0x2563eb);
+            const colorWhite = new THREE.Color(0xffffff);
+            const tempColor = new THREE.Color();
+
+            for (let i = 0; i < particleCount; i++) {
+              const i3 = i * 3;
+              const u = Math.random() * Math.PI * 2;
+              const spreadX = (Math.random() - 0.5) * 190;
+              const spreadY = (Math.random() - 0.5) * 110;
+              const spreadZ = (Math.random() - 0.5) * 80;
+
+              let x, y, z;
+              if (i < particleCount * 0.4) {
+                const t = (Math.random() - 0.5) * 160;
+                x = t;
+                y = Math.sin(t * 0.04) * 22 + (Math.random() - 0.5) * 24;
+                z = Math.cos(t * 0.03) * 35 + (Math.random() - 0.5) * 30;
+              } else if (i < particleCount * 0.8) {
+                const rad = 38 + (Math.random() - 0.5) * 20;
+                x = 25 + Math.cos(u) * rad + (Math.random() - 0.5) * 14;
+                y = Math.sin(u) * (rad * 0.75) + (Math.random() - 0.5) * 16;
+                z = (Math.random() - 0.5) * 45;
+              } else {
+                x = spreadX;
+                y = spreadY;
+                z = spreadZ;
+              }
+
+              positions[i3] = x;
+              positions[i3 + 1] = y;
+              positions[i3 + 2] = z;
+
+              basePositions[i3] = x;
+              basePositions[i3 + 1] = y;
+              basePositions[i3 + 2] = z;
+
+              velocities[i3] = 0;
+              velocities[i3 + 1] = 0;
+              velocities[i3 + 2] = 0;
+
+              const normX = (x + 95) / 190;
+              tempColor.copy(colorCyan).lerp(colorViolet, Math.max(0, Math.min(1, normX)));
+              if (Math.random() > 0.82) {
+                tempColor.lerp(colorWhite, 0.45);
+              } else if (Math.random() < 0.25) {
+                tempColor.lerp(colorBlue, 0.5);
+              }
+
+              colors[i3] = tempColor.r;
+              colors[i3 + 1] = tempColor.g;
+              colors[i3 + 2] = tempColor.b;
+
+              sizes[i] = Math.random() * 2.8 + 1.2;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const pCanvas = document.createElement('canvas');
+            pCanvas.width = 32;
+            pCanvas.height = 32;
+            const pCtx = pCanvas.getContext('2d');
+            const pGrad = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            pGrad.addColorStop(0, 'rgba(255,255,255,1)');
+            pGrad.addColorStop(0.25, 'rgba(0,240,255,0.85)');
+            pGrad.addColorStop(0.65, 'rgba(121,40,202,0.3)');
+            pGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            pCtx.fillStyle = pGrad;
+            pCtx.beginPath();
+            pCtx.arc(16, 16, 16, 0, Math.PI * 2);
+            pCtx.fill();
+
+            const pTexture = new THREE.CanvasTexture(pCanvas);
+            const material = new THREE.PointsMaterial({
+              size: 2.6,
+              map: pTexture,
+              vertexColors: true,
+              transparent: true,
+              opacity: 0.85,
+              blending: THREE.AdditiveBlending,
+              depthWrite: false
+            });
+
+            const particleField = new THREE.Points(geometry, material);
+            scene.add(particleField);
+
+            const coreGroup = new THREE.Group();
+            const coreGeo = new THREE.IcosahedronGeometry(22, 2);
+            const coreMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff, wireframe: true, transparent: true, opacity: 0.08 });
+            const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+            coreGroup.position.set(38, -2, -10);
+            coreGroup.add(coreMesh);
+
+            const ringGeo = new THREE.TorusGeometry(32, 0.4, 16, 64);
+            const ringMat = new THREE.MeshBasicMaterial({ color: 0x7928ca, transparent: true, opacity: 0.15 });
+            const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+            ringMesh.rotation.x = Math.PI / 3;
+            coreGroup.add(ringMesh);
+            scene.add(coreGroup);
+
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2(-999, -999);
+            const mousePlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+            const mouseWorld = new THREE.Vector3(0, 0, 0);
+
+            let targetMouseX = 0, targetMouseY = 0, smoothMouseX = 0, smoothMouseY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+              const rect = container.getBoundingClientRect();
+              const cX = rect.left + rect.width / 2;
+              const cY = rect.top + rect.height / 2;
+              targetMouseX = ((e.clientX - cX) / rect.width) * 2;
+              targetMouseY = -((e.clientY - cY) / rect.height) * 2;
+              mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+              mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+            });
+
+            window.addEventListener('resize', () => {
+              const w = container.clientWidth || window.innerWidth;
+              const h = container.clientHeight || window.innerHeight;
+              camera.aspect = w / h;
+              camera.updateProjectionMatrix();
+              renderer.setSize(w, h);
+            });
+
+            const clock = new THREE.Clock();
+            function animate() {
+              requestAnimationFrame(animate);
+              const time = clock.getElapsedTime();
+              smoothMouseX += (targetMouseX - smoothMouseX) * 0.05;
+              smoothMouseY += (targetMouseY - smoothMouseY) * 0.05;
+              camera.position.x = smoothMouseX * 12;
+              camera.position.y = smoothMouseY * 8;
+              camera.lookAt(0, 0, 0);
+
+              particleField.rotation.y = time * 0.035;
+              particleField.rotation.z = Math.sin(time * 0.02) * 0.04;
+              coreGroup.rotation.y = time * 0.08;
+              coreGroup.rotation.x = time * 0.04;
+
+              raycaster.setFromCamera(mouse, camera);
+              raycaster.ray.intersectPlane(mousePlane, mouseWorld);
+
+              const posArr = geometry.attributes.position.array;
+              const repulseRadius = 38;
+              const repulseStrength = 1.8;
+
+              for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                const bx = basePositions[i3];
+                const by = basePositions[i3 + 1];
+                const bz = basePositions[i3 + 2];
+                const wave = Math.sin(time * 1.2 + bx * 0.04 + bz * 0.03) * 2.8;
+                const waveX = Math.cos(time * 0.9 + by * 0.04) * 2.0;
+
+                let targetX = bx + waveX;
+                let targetY = by + wave;
+                let targetZ = bz;
+
+                const dx = posArr[i3] - mouseWorld.x;
+                const dy = posArr[i3 + 1] - mouseWorld.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < repulseRadius && dist > 0.001) {
+                  const force = (1 - dist / repulseRadius) * repulseStrength;
+                  const angle = Math.atan2(dy, dx);
+                  posArr[i3] += Math.cos(angle) * force * 5.2;
+                  posArr[i3 + 1] += Math.sin(angle) * force * 5.2;
+                  posArr[i3 + 2] += (1 - dist / repulseRadius) * 16.0;
+                }
+
+                posArr[i3] += (targetX - posArr[i3]) * 0.06;
+                posArr[i3 + 1] += (targetY - posArr[i3 + 1]) * 0.06;
+                posArr[i3 + 2] += (targetZ - posArr[i3 + 2]) * 0.06;
+              }
+              geometry.attributes.position.needsUpdate = true;
+              renderer.render(scene, camera);
+            }
+            animate();
+          })();
+          </script>
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/90 via-surface-container-lowest/60 to-surface-container-lowest/20 pointer-events-none z-[1]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/50 pointer-events-none z-[1]"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary-container/20 rounded-full blur-[140px] pointer-events-none z-[1]"></div>
+        <div class="absolute top-1/2 right-10 w-[30rem] h-[30rem] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none z-[1]"></div>
+
+        <span class="absolute top-4 left-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
+        <span class="absolute top-4 right-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
+        <span class="absolute bottom-4 left-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
+        <span class="absolute bottom-4 right-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
+
+        <div class="max-w-[1720px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center relative z-10">
+          <div class="lg:col-span-8 flex flex-col gap-space-lg relative z-10">
+            <div class="inline-flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/30 w-fit shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse shadow-[0_0_10px_#00dbe9]"></span>
+              <span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">APF IT CONSULTING // TECHNOLOGY PARTNER</span>
+            </div>
+
+            <h1 class="font-display-hero text-display-hero text-on-surface tracking-tight max-w-4xl drop-shadow-md">
+              Transforming Raw Data into <span class="bg-gradient-to-r from-secondary-fixed via-secondary-fixed-dim to-primary bg-clip-text text-transparent">Actionable Business Intelligence.</span>
+            </h1>
+
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl bg-surface-container-lowest/40 backdrop-blur-xs p-1">
+              APF IT Consulting is a technology consulting firm specializing in Artificial Intelligence (AI), Data Analytics, and Digital Transformation solutions. We help organizations modernize their data, build scalable SaaS, and craft robust mobile apps.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+              <button onclick="toggleModal('engage-modal')" class="group relative inline-flex items-center justify-center px-space-lg py-space-sm bg-[#FFFFFF] text-[#0B0B0C] font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:outline hover:outline-1 hover:outline-[#00F0FF] hover:-outline-offset-2 transition-all shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(0,240,255,0.4)]">
+                <span class="flex items-center gap-space-sm">
+                  Schedule Consultation
+                  <span class="material-symbols-outlined text-[18px] transform transition-transform duration-200 group-hover:translate-x-1">north_east</span>
+                </span>
+              </button>
+
+              <a class="inline-flex items-center gap-space-sm px-space-md py-space-sm bg-transparent border border-[#262833] text-[#FFFFFF] hover:border-[#7928CA] hover:text-[#00F0FF] hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.5)] transition-all group" href="#capabilities">
+                <span class="font-label-caps text-label-caps uppercase tracking-wider">Explore Capabilities</span>
+                <span class="material-symbols-outlined text-[16px] text-[#64748B] group-hover:translate-x-1 group-hover:text-secondary-fixed-dim transition-transform">arrow_forward</span>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-md mt-space-sm bg-[#121316]/90 backdrop-blur-md border border-[#262833] p-space-md shadow-sm max-w-2xl">
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">AI & Analytics</span>
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Data-Driven Insights</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-secondary-fixed-dim font-semibold tracking-tight">SaaS Platforms</span>
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Cloud Multi-Tenant Apps</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md text-primary font-semibold tracking-tight">Mobile Apps</span>
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">iOS & Android Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 flex flex-col justify-between items-start lg:items-end gap-space-md h-full py-space-md relative z-10 pointer-events-none">
+            <div class="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 pointer-events-auto shadow-sm">
+              <span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full animate-ping"></span>
+              <span class="font-label-mono text-label-mono text-outline tracking-widest">[SPECIALIZATION: AI // SAAS // MOBILE]</span>
+            </div>
+            <div class="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 pointer-events-auto shadow-sm">
+              <span class="font-label-mono text-label-mono text-secondary-fixed-dim tracking-wider font-semibold">STATUS: READY FOR ENGAGEMENT</span>
+            </div>
+            <div class="flex items-center gap-space-sm px-3.5 py-2 bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/30 shadow-md pointer-events-auto">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                <span class="font-label-mono text-label-mono text-on-surface">APF IT CONSULTING</span>
+              </div>
+              <span class="text-outline text-label-mono">//</span>
+              <span class="font-label-mono text-label-mono text-secondary-fixed-dim">END-TO-END</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 2: CORE CAPABILITIES ==================== -->
+      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl" id="capabilities">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+          <div class="flex items-center gap-space-sm">
+            <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">01 / WHAT WE DO</span>
+          </div>
+
+          <div class="max-w-4xl">
+            <h2 class="font-headline-xl text-headline-xl leading-snug tracking-tight">
+              <span class="text-on-surface font-semibold">HELPING BUSINESSES MODERNIZE</span>
+              <span class="text-outline"> AND MAXIMIZE VALUE FROM </span>
+              <span class="bg-gradient-to-r from-secondary-fixed-dim via-primary to-primary-container bg-clip-text text-transparent font-bold">DATA, AI & CLOUD SOFTWARE.</span>
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant pt-space-sm">
+              Through innovative technologies and strategic insights, we empower businesses to make data-driven decisions, improve operational efficiency, uncover growth opportunities, and achieve sustainable competitive advantage.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg pt-space-md">
+            <!-- Pillar 01: AI Solutions -->
+            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+              <div class="flex flex-col gap-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim tracking-wider">[ARTIFICIAL INTELLIGENCE]</span>
+                  <span class="font-headline-sm text-headline-sm text-outline group-hover:text-secondary-fixed-dim transition-colors">01</span>
+                </div>
+                <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-secondary-fixed-dim/20 transition-colors">
+                  <span class="material-symbols-outlined text-[28px] text-secondary group-hover:text-secondary-fixed-dim transition-colors">smart_toy</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-secondary transition-colors">AI Solutions</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  We integrate practical AI into your everyday business operations—automating repetitive tasks, building intelligent assistants, and generating predictive models.
+                </p>
+                <ul class="space-y-1.5 pt-space-xs font-label-mono text-label-mono text-outline">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>Custom LLM & Generative AI workflows</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>Document intelligence & process automation</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>Predictive analytics & recommendation systems</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 p-space-sm flex items-center justify-between border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-secondary font-semibold">Intelligent Automation</span>
+                <span class="font-label-mono text-label-mono text-outline tracking-wider">// Practical ROI</span>
+              </div>
+            </div>
+
+            <!-- Pillar 02: Data Analytics -->
+            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+              <div class="flex flex-col gap-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-tertiary tracking-wider">[DATA & BUSINESS INTELLIGENCE]</span>
+                  <span class="font-headline-sm text-headline-sm text-outline group-hover:text-primary transition-colors">02</span>
+                </div>
+                <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <span class="material-symbols-outlined text-[28px] text-primary group-hover:text-primary-fixed-dim transition-colors">analytics</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">Data Analytics</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  We turn messy, fragmented company data into unified reporting pipelines and interactive executive dashboards that guide smarter business decisions.
+                </p>
+                <ul class="space-y-1.5 pt-space-xs font-label-mono text-label-mono text-outline">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary"></span>
+                    <span>Modern data warehousing & ETL pipelines</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary"></span>
+                    <span>Interactive executive BI dashboards</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-primary"></span>
+                    <span>Data governance & cleansing strategies</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 p-space-sm flex items-center justify-between border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-primary font-semibold">Unified Visibility</span>
+                <span class="font-label-mono text-label-mono text-outline tracking-wider">// Single Source of Truth</span>
+              </div>
+            </div>
+
+            <!-- Pillar 03: SaaS & Mobile Apps -->
+            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+              <div class="flex flex-col gap-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-primary-fixed-dim tracking-wider">[SAAS & MOBILE APPS]</span>
+                  <span class="font-headline-sm text-headline-sm text-outline group-hover:text-primary-fixed transition-colors">03</span>
+                </div>
+                <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-primary-container/40 transition-colors">
+                  <span class="material-symbols-outlined text-[28px] text-primary-fixed group-hover:text-primary transition-colors">devices</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary-fixed-dim transition-colors">SaaS & Mobile Apps</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  We design, build, and deploy custom software products from the ground up—including multi-tenant SaaS platforms, web apps, and native iOS & Android applications.
+                </p>
+                <ul class="space-y-1.5 pt-space-xs font-label-mono text-label-mono text-outline">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>Full-stack cloud SaaS development</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>iOS & Android cross-platform mobile apps</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
+                    <span>Legacy system & workflow digitization</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 p-space-sm flex items-center justify-between border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-secondary font-semibold">Custom Software</span>
+                <span class="font-label-mono text-label-mono text-outline tracking-wider">// Web & Mobile Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 3: SOLUTIONS & CASE STUDIES ==================== -->
+      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl overflow-hidden" id="case-studies">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+            <div class="space-y-2">
+              <div class="flex items-center gap-space-sm">
+                <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
+                <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">02 / REPRESENTATIVE CLIENT SOLUTIONS</span>
+              </div>
+              <h2 class="font-headline-xl text-headline-xl text-on-surface">Proven Solutions Across Industries</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                See how we help organizations turn complex challenges into reliable, high-performance technology solutions.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-space-md">
+              <div class="flex items-center gap-space-sm bg-surface-container px-space-md py-2 border border-[#262833]">
+                <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-semibold tracking-widest" id="case-indicator">01 / 04</span>
+                <div class="w-24 h-[1px] bg-[#262833] overflow-hidden">
+                  <div class="w-1/4 h-full bg-gradient-to-r from-[#00F0FF] via-[#6366F1] to-[#7928CA] transition-all duration-300" id="scroll-progress-bar"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <button aria-label="Previous Study" class="w-10 h-10 bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-secondary flex items-center justify-center transition-colors border border-[#262833]" id="case-prev">
+                  <span class="material-symbols-outlined text-[20px]">west</span>
+                </button>
+                <button aria-label="Next Study" class="w-10 h-10 bg-surface-container hover:bg-secondary-fixed-dim text-on-surface hover:text-[#0B0B0C] flex items-center justify-center transition-colors border border-[#262833]" id="case-next">
+                  <span class="material-symbols-outlined text-[20px]">east</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-space-lg pb-space-sm scroll-smooth" id="case-scroll-container">
+            <!-- Card 1 -->
+            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between text-outline">
+                  <span class="font-label-mono text-label-mono tracking-widest">FINANCIAL SERVICES</span>
+                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim">DATA ANALYTICS</span>
+                </div>
+                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                  <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Executive financial reporting dashboards" src="images/image_2.png"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Unified Financial Analytics Pipeline</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Consolidated multi-entity transactional data into automated ETL pipelines and real-time PowerBI/Tableau dashboards for leadership reporting.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-space-xs">
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[DATA PIPELINES]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[EXECUTIVE BI]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTOMATED REPORTING]</span>
+                </div>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-headline-lg text-secondary font-bold tracking-tight">85% Faster Month-End Close</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between text-outline">
+                  <span class="font-label-mono text-label-mono tracking-widest">LOGISTICS & SUPPLY CHAIN</span>
+                  <span class="font-label-mono text-label-mono text-primary">CUSTOM SAAS</span>
+                </div>
+                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                  <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Supply chain logistics SaaS" src="images/image_3.png"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">B2B Vendor Management SaaS Platform</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Architected and deployed a multi-tenant cloud application connecting suppliers, inventory tracking, and purchase order approvals.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-space-xs">
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[MULTI-TENANT SAAS]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[CLOUD ARCHITECTURE]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTOMATED WORKFLOWS]</span>
+                </div>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">4x Faster Partner Onboarding</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between text-outline">
+                  <span class="font-label-mono text-label-mono tracking-widest">HEALTHCARE SERVICES</span>
+                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim">AI AUTOMATION</span>
+                </div>
+                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                  <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Clinical document automation" src="images/image_4.png"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">AI-Powered Patient Intake & Records</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Implemented an intelligent document processing engine that extracts, classifies, and verifies medical intake records into electronic health databases.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-space-xs">
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[INTELLIGENT OCR]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[SECURE COMPLIANCE]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTO-CLASSIFICATION]</span>
+                </div>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-headline-lg text-secondary-fixed-dim font-bold tracking-tight">70% Less Manual Entry Time</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between text-outline">
+                  <span class="font-label-mono text-label-mono tracking-widest">FIELD SERVICES & UTILITIES</span>
+                  <span class="font-label-mono text-label-mono text-primary">MOBILE APPLICATION</span>
+                </div>
+                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                  <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Field operations mobile app" src="images/image_5.png"/>
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Cross-Platform Field Operations App</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Developed iOS and Android mobile applications with offline synchronization, real-time GPS dispatching, and field work order completions.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-space-xs">
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[IOS & ANDROID]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[OFFLINE-FIRST]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[REAL-TIME SYNC]</span>
+                </div>
+              </div>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-headline-lg text-primary-fixed-dim font-bold tracking-tight">Zero Lost Field Reports</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 4: TECH STACK ==================== -->
+      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl border-t border-[#262833]" id="tech-stack">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+            <div class="space-y-2">
+              <div class="flex items-center gap-space-sm">
+                <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
+                <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">03 / TECHNOLOGY STACK</span>
+              </div>
+              <h2 class="font-headline-xl text-headline-xl text-on-surface">Modern Tools We Build With</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                We leverage reliable, battle-tested modern technology frameworks to ensure high performance, security, and long-term maintainability.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <!-- Tech category 1: AI & ML -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all">
+              <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
+                <span class="material-symbols-outlined text-secondary-fixed-dim text-[24px]">psychology</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">AI & Machine Learning</h4>
+              </div>
+              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between"><span>OpenAI & Anthropic APIs</span><span class="text-outline">LLMs</span></li>
+                <li class="flex items-center justify-between"><span>LangChain & LlamaIndex</span><span class="text-outline">RAG</span></li>
+                <li class="flex items-center justify-between"><span>Python & PyTorch</span><span class="text-outline">Modeling</span></li>
+                <li class="flex items-center justify-between"><span>HuggingFace Models</span><span class="text-outline">Custom</span></li>
+              </ul>
+            </div>
+
+            <!-- Tech category 2: Data & Cloud -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-primary transition-all">
+              <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
+                <span class="material-symbols-outlined text-primary text-[24px]">database</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Data & Cloud</h4>
+              </div>
+              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between"><span>PostgreSQL & Supabase</span><span class="text-outline">Relational</span></li>
+                <li class="flex items-center justify-between"><span>Snowflake & BigQuery</span><span class="text-outline">Warehousing</span></li>
+                <li class="flex items-center justify-between"><span>AWS / Google Cloud / Azure</span><span class="text-outline">Cloud</span></li>
+                <li class="flex items-center justify-between"><span>Docker & Terraform</span><span class="text-outline">DevOps</span></li>
+              </ul>
+            </div>
+
+            <!-- Tech category 3: Web & SaaS -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-secondary-fixed-dim transition-all">
+              <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
+                <span class="material-symbols-outlined text-secondary-fixed-dim text-[24px]">web</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Web & SaaS Platforms</h4>
+              </div>
+              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between"><span>React & Next.js</span><span class="text-outline">Frontend</span></li>
+                <li class="flex items-center justify-between"><span>TypeScript & Node.js</span><span class="text-outline">Backend</span></li>
+                <li class="flex items-center justify-between"><span>Tailwind CSS</span><span class="text-outline">Styling</span></li>
+                <li class="flex items-center justify-between"><span>REST & GraphQL APIs</span><span class="text-outline">Services</span></li>
+              </ul>
+            </div>
+
+            <!-- Tech category 4: Mobile Apps -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-primary-fixed-dim transition-all">
+              <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-[24px]">phone_iphone</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Mobile Applications</h4>
+              </div>
+              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between"><span>Flutter & Dart</span><span class="text-outline">Cross-Platform</span></li>
+                <li class="flex items-center justify-between"><span>React Native</span><span class="text-outline">Cross-Platform</span></li>
+                <li class="flex items-center justify-between"><span>iOS (Swift)</span><span class="text-outline">Native</span></li>
+                <li class="flex items-center justify-between"><span>Android (Kotlin)</span><span class="text-outline">Native</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 5: METHODOLOGY ==================== -->
+      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl border-t border-[#262833]" id="methodology">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+          <div class="flex items-center gap-space-sm">
+            <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">04 / HOW WE WORK</span>
+          </div>
+
+          <div class="max-w-4xl">
+            <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Our 4-Step Engagement Process</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant pt-2">
+              From initial discovery through delivery and ongoing support, we work hand-in-hand with your team to deliver results on time and on budget.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md pt-space-md">
+            <!-- Step 1 -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-bold">STEP 01</span>
+                  <span class="font-label-mono text-label-mono text-outline">DISCOVERY</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Discovery & Assessment</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  We audit your current data, workflows, and business goals to determine high-impact opportunities for automation, analytics, or custom software.
+                </p>
+              </div>
+              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Technical Roadmap & Scope</span>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary transition-all">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-primary font-bold">STEP 02</span>
+                  <span class="font-label-mono text-label-mono text-outline">DESIGN</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Architecture & Prototyping</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  We craft system architecture blueprints, UI/UX wireframes, database schemas, and AI integration plans so you can visualize the final product.
+                </p>
+              </div>
+              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Interactive Prototype & Architecture</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-bold">STEP 03</span>
+                  <span class="font-label-mono text-label-mono text-outline">DEVELOPMENT</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Agile Engineering Sprints</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  We build in rapid, transparent 2-week iterations with continuous demos, rigorous code reviews, automated tests, and clear milestones.
+                </p>
+              </div>
+              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Production-Ready Software</span>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary-fixed-dim transition-all">
+              <div class="space-y-space-md">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-mono text-label-mono text-primary-fixed-dim font-bold">STEP 04</span>
+                  <span class="font-label-mono text-label-mono text-outline">SUPPORT</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Deployment & Handover</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  We deploy to your secure cloud infrastructure, train your internal team, provide full documentation, and offer ongoing maintenance support.
+                </p>
+              </div>
+              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Full IP Ownership & Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 6: ABOUT US ==================== -->
+      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl border-t border-[#262833]" id="about">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+          <div class="flex items-center gap-space-sm">
+            <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
+            <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">05 / ABOUT APF IT CONSULTING</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+            <div class="lg:col-span-6 space-y-space-md">
+              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Your Trusted Technology & Data Consulting Partner</h2>
+              <p class="font-body-lg text-body-lg text-on-surface-variant">
+                APF IT Consulting is a technology consulting firm specializing in Artificial Intelligence (AI), Data Analytics, and Digital Transformation solutions.
+              </p>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Our team is committed to helping organizations modernize and maximize the value of their data assets by transforming raw data into meaningful, actionable business intelligence. Through innovative technologies and strategic insights, we empower businesses to make data-driven decisions, improve operational efficiency, uncover growth opportunities, and achieve sustainable competitive advantage. We specialize in using AI, creating SAAS, mobile apps, and other technologies.
+              </p>
+            </div>
+
+            <!-- Pillars of Commitment -->
+            <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+                <div class="space-y-space-xs">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-[28px]">data_thresholding</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Data-Driven Value</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    We turn dormant data assets into clear decision engines that drive measurable bottom-line growth.
+                  </p>
+                </div>
+                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// BUSINESS INTELLIGENCE</span>
+              </div>
+
+              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+                <div class="space-y-space-xs">
+                  <span class="material-symbols-outlined text-primary text-[28px]">code</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">End-to-End Development</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    From concept and architecture to production deployment of SaaS and iOS/Android applications.
+                  </p>
+                </div>
+                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// FULL-STACK ENGINEERING</span>
+              </div>
+
+              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+                <div class="space-y-space-xs">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-[28px]">handshake</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Collaborative Partnership</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    We work directly with your stakeholders with transparent communication, frequent demos, and zero bureaucracy.
+                  </p>
+                </div>
+                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// AGILE COLLABORATION</span>
+              </div>
+
+              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+                <div class="space-y-space-xs">
+                  <span class="material-symbols-outlined text-primary text-[28px]">verified_user</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Complete IP Ownership</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    You own 100% of the code, data pipelines, and infrastructure built during our engagement.
+                  </p>
+                </div>
+                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// CLIENT-OWNED INTELLECTUAL PROPERTY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SECTION 7: CALL TO ACTION BLOCK ==================== -->
+      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl overflow-hidden border-t border-[#262833]">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-[600px] h-[300px] bg-gradient-to-r from-secondary-fixed-dim/20 via-primary-container/25 to-primary/20 blur-[130px] rounded-full"></div>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center gap-space-lg">
+          <div class="inline-flex items-center gap-space-sm px-space-md py-1 bg-surface-container border border-[#262833]">
+            <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse shadow-[0_0_8px_#00dbe9]"></span>
+            <span class="font-label-mono text-label-mono text-on-surface uppercase tracking-widest">START YOUR DIGITAL TRANSFORMATION TODAY</span>
+          </div>
+
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight max-w-2xl">
+            Ready to Build Your Next Solution or Modernize Your Data?
+          </h2>
+
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Let's discuss your project goals, technical requirements, and explore how APF IT Consulting can help you succeed.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center gap-space-md pt-space-md w-full justify-center">
+            <button onclick="toggleModal('engage-modal')" class="group relative w-full sm:w-auto inline-flex items-center justify-center px-space-xl py-space-md bg-[#FFFFFF] text-[#0B0B0C] font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:outline hover:outline-1 hover:outline-[#00F0FF] hover:-outline-offset-2 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_35px_rgba(0,240,255,0.4)]">
+              <span class="flex items-center justify-center gap-space-sm">
+                Get In Touch
+                <span class="material-symbols-outlined text-[18px] text-[#0B0B0C] transform group-hover:translate-x-1 transition-transform">north_east</span>
+              </span>
+            </button>
+
+            <a class="group w-full sm:w-auto inline-flex items-center justify-center px-space-xl py-space-md bg-transparent border border-[#262833] text-[#FFFFFF] hover:border-[#7928CA] hover:text-[#00F0FF] hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.5)] transition-all" href="#capabilities">
+              <div class="flex items-center gap-space-sm">
+                <span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold transition-colors">
+                  Explore Capabilities
+                </span>
+                <span class="material-symbols-outlined text-[18px] text-[#64748B] group-hover:text-[#00F0FF] transition-colors">arrow_downward</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="pt-space-md flex items-center gap-space-md font-label-mono text-label-mono text-outline uppercase tracking-widest">
+            <span>CONSULTING</span>
+            <span>//</span>
+            <span>AI & DATA ANALYTICS</span>
+            <span>//</span>
+            <span>SAAS & MOBILE APPS</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 pt-space-2xl pb-space-xl">
+    <div class="w-full px-gutter-desktop mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-space-lg mb-space-xl border-b border-outline-variant/20 gap-space-md">
+        <div class="flex items-center gap-space-sm font-label-mono text-label-mono text-outline uppercase tracking-widest">
+          <span class="text-secondary-fixed-dim">+</span>
+          <span>APF IT CONSULTING // TECHNOLOGY & DATA SOLUTIONS</span>
+          <span class="text-secondary-fixed-dim">+</span>
+        </div>
+        <div class="flex items-center gap-space-xs font-label-mono text-label-mono text-outline tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim inline-block"></span>
+          <span>READY FOR NEW PROJECTS</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-2xl">
+        <div class="space-y-space-sm">
+          <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Services</div>
+          <ul class="space-y-space-xs font-label-mono text-label-mono">
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#capabilities">Artificial Intelligence (AI)</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#capabilities">Data Analytics & BI</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#capabilities">Custom SaaS Development</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#capabilities">Mobile App Development</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-space-sm">
+          <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Solutions</div>
+          <ul class="space-y-space-xs font-label-mono text-label-mono">
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#case-studies">Executive Dashboards</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#case-studies">Data Warehouse Modernization</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#case-studies">Process Automation & AI</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#case-studies">Cloud Web Applications</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-space-sm">
+          <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Process</div>
+          <ul class="space-y-space-xs font-label-mono text-label-mono">
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#methodology">01 / Discovery & Assessment</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#methodology">02 / Architecture & Design</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#methodology">03 / Agile Development</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#methodology">04 / Deployment & Support</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-space-sm">
+          <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Company</div>
+          <ul class="space-y-space-xs font-label-mono text-label-mono">
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#about">About APF IT</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#tech-stack">Technology Stack</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="#case-studies">Client Work</a></li>
+            <li class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"><a href="javascript:toggleModal('engage-modal')">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-space-sm">
+          <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Connect</div>
+          <p class="font-body-sm text-body-sm text-outline">Have a project in mind? Reach out to schedule an introductory discussion.</p>
+          <div class="pt-space-xs">
+            <button onclick="toggleModal('engage-modal')" class="px-space-md py-2 bg-surface-container-high hover:bg-[#00F0FF] hover:text-[#0B0B0C] text-on-surface font-label-mono text-label-mono uppercase transition-colors flex items-center gap-2">
+              <span>Send An Inquiry</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between pt-space-lg border-t border-outline-variant/20 gap-space-md font-label-mono text-label-mono text-outline">
+        <div class="flex items-center gap-space-md">
+          <img alt="APF IT Monogram" class="h-6 w-6 object-contain inline-block" src="images/apf_monogram_transparent.png"/>
+          <span>© 2025 APF IT CONSULTING. ALL RIGHTS RESERVED.</span>
+        </div>
+        <div class="flex items-center gap-space-lg">
+          <span class="hover:text-on-surface cursor-pointer">PRIVACY POLICY</span>
+          <span class="hover:text-on-surface cursor-pointer">TERMS OF SERVICE</span>
+          <span class="hover:text-on-surface cursor-pointer">CONTACT</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: CONSULTATION ==================== -->
+  <div id="engage-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0B0C]/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl bg-[#121316] border border-[#262833] shadow-[0_0_50px_rgba(0,240,255,0.15)] p-space-xl flex flex-col gap-space-lg">
+      <div class="flex items-center justify-between border-b border-[#262833] pb-space-sm">
+        <div class="flex items-center gap-2 font-label-mono text-label-mono text-secondary-fixed-dim uppercase tracking-widest">
+          <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse"></span>
+          <span>SCHEDULE CONSULTATION WITH APF IT</span>
+        </div>
+        <button onclick="toggleModal('engage-modal')" class="text-outline hover:text-on-surface">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <p class="font-body-sm text-body-sm text-on-surface-variant">
+        Tell us about your business and technology needs. Our team will review your requirements and respond within one business day.
+      </p>
+
+      <form onsubmit="handleConsultationSubmit(event)" class="space-y-space-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <div>
+            <label class="block font-label-mono text-label-mono text-outline uppercase pb-1">Your Name</label>
+            <input type="text" required placeholder="John Doe" class="w-full bg-[#0E0F12] border border-[#262833] px-space-sm py-2 text-on-surface font-label-mono text-label-mono focus:border-secondary-fixed-dim focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block font-label-mono text-label-mono text-outline uppercase pb-1">Email Address</label>
+            <input type="email" required placeholder="john@company.com" class="w-full bg-[#0E0F12] border border-[#262833] px-space-sm py-2 text-on-surface font-label-mono text-label-mono focus:border-secondary-fixed-dim focus:outline-none"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <div>
+            <label class="block font-label-mono text-label-mono text-outline uppercase pb-1">Primary Area of Interest</label>
+            <select class="w-full bg-[#0E0F12] border border-[#262833] px-space-sm py-2 text-on-surface font-label-mono text-label-mono focus:border-secondary-fixed-dim focus:outline-none">
+              <option>Artificial Intelligence (AI) Solutions</option>
+              <option>Data Analytics & Business Intelligence</option>
+              <option>Custom SaaS Platform Development</option>
+              <option>Mobile App (iOS / Android)</option>
+              <option>General Digital Transformation</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-label-mono text-label-mono text-outline uppercase pb-1">Project Timeline</label>
+            <select class="w-full bg-[#0E0F12] border border-[#262833] px-space-sm py-2 text-on-surface font-label-mono text-label-mono focus:border-secondary-fixed-dim focus:outline-none">
+              <option>Immediately (Within 1 month)</option>
+              <option>Next Quarter (1-3 months)</option>
+              <option>Exploring / Initial Planning</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-label-mono text-label-mono text-outline uppercase pb-1">Project Overview</label>
+          <textarea rows="3" placeholder="Briefly describe what you're looking to build or the problem you're trying to solve..." class="w-full bg-[#0E0F12] border border-[#262833] px-space-sm py-2 text-on-surface font-label-mono text-label-mono focus:border-secondary-fixed-dim focus:outline-none"></textarea>
+        </div>
+
+        <div class="flex items-center justify-between pt-space-sm">
+          <span class="font-label-mono text-label-mono text-outline">CONFIDENTIAL & DIRECT REVIEW</span>
+          <button type="submit" class="px-space-xl py-2 bg-[#FFFFFF] text-[#0B0B0C] font-label-caps text-label-caps uppercase font-semibold hover:bg-secondary-fixed-dim transition-colors">
+            Submit Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client-side Interactive Carousel & Modal Logic -->
+  <script>
+    function toggleModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      const isHidden = modal.classList.contains('pointer-events-none');
+      if (isHidden) {
+        modal.classList.remove('pointer-events-none', 'opacity-0');
+        modal.classList.add('opacity-100');
+      } else {
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function handleConsultationSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your inquiry has been sent to the APF IT Consulting team.');
+      toggleModal('engage-modal');
+    }
+
+    (function initCaseStudyCarousel() {
+      const container = document.getElementById('case-scroll-container');
+      const prevBtn = document.getElementById('case-prev');
+      const nextBtn = document.getElementById('case-next');
+      const indicator = document.getElementById('case-indicator');
+      const progressBar = document.getElementById('scroll-progress-bar');
+      if (!container || !prevBtn || !nextBtn) return;
+
+      const totalCards = 4;
+      const cardWidth = 480;
+
+      function updateTelemetry() {
+        const scrollLeft = container.scrollLeft;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        const ratio = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+        let currentIndex = Math.min(totalCards, Math.max(1, Math.round(ratio * (totalCards - 1)) + 1));
+        if (indicator) {
+          indicator.textContent = '0' + currentIndex + ' / 0' + totalCards;
+        }
+        if (progressBar) {
+          const widthPercent = Math.max(25, (currentIndex / totalCards) * 100);
+          progressBar.style.width = widthPercent + '%';
+        }
+      }
+
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      });
+
+      container.addEventListener('scroll', updateTelemetry, { passive: true });
+    })();
+  </script>
+</body>
+</html>

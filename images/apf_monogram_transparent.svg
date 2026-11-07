@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="apfNeonGrad" x1="0%" y1="100%" x2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="55%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <filter id="vectorGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Transparent Background (No background rect) -->
+
+  <!-- Monogram A Group Centered (No text below) -->
+  <g transform="translate(0, 10)">
+    <!-- Primary Left Monolithic Stem of 'AN -->
+    <path d="M 200 70 L 98 290 L 136 290 L 200 146 L 264 290 L 302 290 Z" 
+          fill="none" 
+          stroke="url(#apfNeonGrad)" 
+          stroke-width="16" 
+          stroke-linejoin="miter" 
+          stroke-miterlimit="4" />
+
+    <!-- Pure Minimalist Solid Inner Ascending Facet (A-Peak) -->
+    <polygon points="200,108 240,200 160,200" fill="url(#apfNonGrad)" fill-opacity="0.16" />
+
+    <!-- Kinetic Floating Horizontal Crossbar / Quantum Telemetry Bridge -->
+    <path d="M 144 220 L 256 220" 
+          stroke="#00f0ff" 
+          stroke-width="10" 
+          stroke-linecap="square" 
+          filter="url(#vectorGlow)" />
+
+    <!-- Pure Apex Vertex Accent -->
+    <circle cx="200" cy="70" r="5" fill="#00f0ff" filter="url(#vectorGlow)" />
+
+    <!-- Modernist Technical Hairline Coordinate Markers -->
+    <rect x="68" y="60" width="12" height="12" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.5" />
+    <rect x="320" y="300" width="12" height="12" fill="none" stroke="#7928ca" stroke-width="1.5" stroke-opacity="0.5" />
+  </g>
+</svg>

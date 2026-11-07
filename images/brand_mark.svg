@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="apfitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="60%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="subtleLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#7928ca" stop-opacity="0.1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base (Transparent/Deep Obsidian ready) -->
+  <rect width="420" height="100" fill="transparent"/>
+
+  <!-- Logo Mark / Architectural Emblem Group -->
+  <g transform="translate(16, 12)">
+    <!-- Outer Kinetic Bracket -->
+    <path d="M 6 22 L 6 10 L 22 10" fill="none" stroke="#00f0ff" stroke-width="1.75" stroke-linecap="square" opacity="0.65"/>
+    <path d="M 68 54 L 68 66 L 52 66" fill="none" stroke="#7928ca" stroke-width="1.75" stroke-linecap="square" opacity="0.65"/>
+
+    <!-- Neural Prism / Geometric Ascending Delta Motif -->
+    <!-- Primary faceted polygon -->
+    <polygon points="37,12 60,56 14,56" fill="none" stroke="url(#apfitGrad)" stroke-width="3" stroke-linejoin="round"/>
+    
+    <!-- Inner intersection facets representing AI cognitive architecture -->
+    <polygon points="37,12 48,36 26,36" fill="url(#apfitGrad)" fill-opacity="0.18" stroke="#00f0ff" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="37" y1="12" x2="37" y2="56" stroke="url(#apfitGrad)" stroke-width="1.75" stroke-dasharray="2,2"/>
+    <line x1="26" y1="36" x2="60" y2="56" stroke="#00f0ff" stroke-width="1.5" opacity="0.8"/>
+    <line x1="48" y1="36" x2="14" y2="56" stroke="#7928ca" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- Focal Vertex Glowing Nodes -->
+    <circle cx="37" cy="12" r="3.2" fill="#00f0ff" filter="url(#glow)"/>
+    <circle cx="14" cy="56" r="2.8" fill="#00f0ff"/>
+    <circle cx="60" cy="56" r="2.8" fill="#7928ca"/>
+    <circle cx="37" cy="36" r="2.2" fill="#ffffff"/>
+  </g>
+
+  <!-- Typography: APFIT Wordmark + Metadata Sub-tier -->
+  <!-- Wordmark -->
+  <text x="106" y="52" fill="#ffffff" font-family="'Sora', 'Inter', -apple-system, sans-serif" font-size="34" font-weight="800" letter-spacing="0.08em">APFIT</text>
+  
+  <!-- Cyber Gradient Pulse Dot -->
+  <circle cx="230" cy="46" r="3.5" fill="#00f0ff" filter="url(#glow)"/>
+
+  <!-- Sub-tier Monospace Technical Label -->
+  <text x="108" y="70" fill="#a1a1aa" font-family="'JetBrains Mono', 'SF Mono', monospace" font-size="9" font-weight="600" letter-spacing="0.28em">COGNITIVE ARCHITECTURE // LABS</text>
+
+  <!-- Hairline Micro Axis Indicator -->
+  <line x1="108" y1="78" x2="330" y2="78" stroke="url(#subtleLine)" stroke-width="1" />
+</svg>
