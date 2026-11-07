@@ -13,7 +13,7 @@
   
   <style>
     @layer base { 
-      html, body { margin: 0; padding: 0; } 
+      html, body { margin: 0; padding: 0; overflow-x: hidden; max-width: 100vw; } 
       body { overscroll-behavior: none; } 
       main > :first-child { margin-top: 0 !important; } 
       main > :last-child { margin-bottom: 0 !important; } 
@@ -167,19 +167,19 @@
 
   <!-- ==================== HEADER ==================== -->
   <!-- ==================== HEADER (iOS 26 Liquid Glass Floating Island) ==================== -->
-  <header class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-7xl rounded-full px-6 py-2.5 backdrop-blur-3xl backdrop-saturate-[2.5] bg-[#121316]/60 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.35),inset_0_-1px_1px_0_rgba(0,0,0,0.4)] transition-all duration-300">
-    <div class="w-full flex items-center justify-between gap-space-md">
+  <header id="site-header" class="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[92%] max-w-7xl rounded-2xl lg:rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 backdrop-blur-3xl backdrop-saturate-[2.5] bg-[#121316]/80 border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.35),inset_0_-1px_1px_0_rgba(0,0,0,0.4)] transition-all duration-300">
+    <div class="w-full flex items-center justify-between gap-2 sm:gap-space-md">
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <img alt="APF IT Monogram" class="h-8 w-8 object-contain shrink-0 drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]" src="images/apf_monogram_transparent.png"/>
+      <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+        <img alt="APF IT Monogram" class="h-7 w-7 sm:h-8 sm:w-8 object-contain shrink-0 drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]" src="images/apf_monogram_transparent.png"/>
         <div class="flex flex-col">
-          <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold group-hover:text-secondary-fixed-dim transition-colors">APF IT</span>
-          <span class="font-label-mono text-[10px] text-outline tracking-widest uppercase">CONSULTING</span>
+          <span class="font-label-caps text-xs sm:text-label-caps uppercase tracking-widest text-on-surface font-bold group-hover:text-secondary-fixed-dim transition-colors">APF IT</span>
+          <span class="font-label-mono text-[9px] sm:text-[10px] text-outline tracking-widest uppercase">CONSULTING</span>
         </div>
       </a>
       
-      <!-- Nav Pill Menu -->
-      <nav class="hidden xl:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/5 backdrop-blur-md">
+      <!-- Nav Pill Menu (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/5 backdrop-blur-md">
         <a class="group flex items-center gap-1.5 font-label-mono text-label-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full text-on-surface-variant hover:text-white hover:bg-white/10 transition-all duration-200" href="#capabilities">
           <span class="text-secondary-fixed-dim">01/</span>Capabilities
         </a>
@@ -197,19 +197,52 @@
         </a>
       </nav>
       
-      <!-- Status & CTA -->
-      <div class="flex items-center gap-space-md">
-        <div class="hidden md:flex items-center gap-space-xs px-3 py-1 bg-white/[0.04] border border-white/10 rounded-full backdrop-blur-md">
+      <!-- Status, CTA & Mobile Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-space-md">
+        <div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-white/[0.04] border border-white/10 rounded-full backdrop-blur-md">
           <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse inline-block shadow-[0_0_8px_#00dbe9]"></span>
           <span class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-wider">PROJECTS OPEN</span>
         </div>
         
-        <button onclick="toggleModal('engage-modal')" class="relative inline-flex items-center px-5 py-2 rounded-full bg-white text-[#0B0B0C] font-label-caps text-label-caps font-semibold uppercase tracking-wider hover:bg-secondary-fixed-dim hover:text-[#0B0B0C] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all duration-300">
-          <div class="flex items-center gap-1.5">
+        <button onclick="toggleModal('engage-modal')" class="relative inline-flex items-center px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white text-[#0B0B0C] font-label-caps text-[11px] sm:text-label-caps font-semibold uppercase tracking-wider hover:bg-secondary-fixed-dim hover:text-[#0B0B0C] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all duration-300 shrink-0">
+          <div class="flex items-center gap-1 sm:gap-1.5">
             <span>GET IN TOUCH</span>
-            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <span class="material-symbols-outlined text-[14px] sm:text-[16px]">arrow_forward</span>
           </div>
         </button>
+
+        <!-- Mobile Navigation Toggle -->
+        <button id="mobile-toggle-btn" onclick="toggleMobileMenu()" aria-label="Open Navigation Menu" class="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.06] border border-white/10 text-on-surface hover:text-secondary-fixed-dim hover:border-secondary-fixed-dim/40 transition-colors shrink-0">
+          <span id="mobile-toggle-icon" class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown Menu -->
+    <div id="mobile-nav-panel" class="hidden lg:hidden flex-col gap-1 pt-3 pb-2 mt-2 border-t border-white/10 transition-all duration-300">
+      <a onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-lg font-label-mono text-xs uppercase tracking-wider text-on-surface hover:text-secondary-fixed-dim hover:bg-white/[0.04] transition-colors" href="#capabilities">
+        <span><span class="text-secondary-fixed-dim font-bold mr-2">01/</span>Capabilities</span>
+        <span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+      </a>
+      <a onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-lg font-label-mono text-xs uppercase tracking-wider text-on-surface hover:text-secondary-fixed-dim hover:bg-white/[0.04] transition-colors" href="#case-studies">
+        <span><span class="text-secondary-fixed-dim font-bold mr-2">02/</span>Solutions</span>
+        <span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+      </a>
+      <a onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-lg font-label-mono text-xs uppercase tracking-wider text-on-surface hover:text-secondary-fixed-dim hover:bg-white/[0.04] transition-colors" href="#tech-stack">
+        <span><span class="text-secondary-fixed-dim font-bold mr-2">03/</span>Tech Stack</span>
+        <span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+      </a>
+      <a onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-lg font-label-mono text-xs uppercase tracking-wider text-on-surface hover:text-secondary-fixed-dim hover:bg-white/[0.04] transition-colors" href="#methodology">
+        <span><span class="text-secondary-fixed-dim font-bold mr-2">04/</span>Methodology</span>
+        <span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+      </a>
+      <a onclick="closeMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-lg font-label-mono text-xs uppercase tracking-wider text-on-surface hover:text-secondary-fixed-dim hover:bg-white/[0.04] transition-colors" href="#about">
+        <span><span class="text-secondary-fixed-dim font-bold mr-2">05/</span>About APF IT</span>
+        <span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+      </a>
+      <div class="flex items-center gap-2 px-3 pt-2 text-[10px] font-label-mono text-outline tracking-wider border-t border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse"></span>
+        <span>STATUS: READY FOR ENGAGEMENT // AI & DATA</span>
       </div>
     </div>
   </header>
@@ -218,7 +251,7 @@
     <div class="flex flex-col w-full">
       
       <!-- ==================== SECTION 1: HERO SECTION ==================== -->
-      <section class="relative w-full overflow-hidden bg-surface-container-lowest px-gutter-desktop pt-32 pb-space-3xl lg:pt-36 min-h-screen flex items-center">
+      <section class="relative w-full overflow-hidden bg-surface-container-lowest px-4 sm:px-6 md:px-8 lg:px-gutter-desktop pt-28 sm:pt-32 pb-16 sm:pb-24 lg:pt-36 lg:pb-space-3xl min-h-screen flex items-center">
         <!-- Interactive 3D Three.js particle simulation canvas -->
         <div class="absolute inset-0 w-full h-full pointer-events-none" style="display:block;">
           <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
@@ -441,106 +474,106 @@
         <span class="absolute bottom-4 left-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
         <span class="absolute bottom-4 right-4 text-outline-variant font-label-mono text-xs select-none pointer-events-none z-20">+</span>
 
-        <div class="max-w-[1720px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center relative z-10">
-          <div class="lg:col-span-8 flex flex-col gap-space-lg relative z-10">
+        <div class="max-w-[1720px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-gutter-desktop items-center relative z-10">
+          <div class="lg:col-span-8 flex flex-col gap-space-md sm:gap-space-lg relative z-10">
             <div class="inline-flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/30 w-fit shadow-sm">
               <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse shadow-[0_0_10px_#00dbe9]"></span>
-              <span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">APF IT CONSULTING // TECHNOLOGY PARTNER</span>
+              <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary tracking-widest uppercase">APF IT CONSULTING // TECHNOLOGY PARTNER</span>
             </div>
 
-            <h1 class="font-display-hero text-display-hero text-on-surface tracking-tight max-w-4xl drop-shadow-md">
+            <h1 class="font-display-hero text-3xl sm:text-4xl md:text-5xl lg:text-display-hero text-on-surface tracking-tight max-w-4xl drop-shadow-md leading-[1.15]">
               Transforming Raw Data into <span class="bg-gradient-to-r from-secondary-fixed via-secondary-fixed-dim to-primary bg-clip-text text-transparent">Actionable Business Intelligence.</span>
             </h1>
 
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl bg-surface-container-lowest/40 backdrop-blur-xs p-1">
+            <p class="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant max-w-2xl bg-surface-container-lowest/40 backdrop-blur-xs p-1">
               APF IT Consulting is a technology consulting firm specializing in Artificial Intelligence (AI), Data Analytics, and Digital Transformation solutions. We help organizations modernize their data, build scalable SaaS, and craft robust mobile apps.
             </p>
 
-            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-              <button onclick="toggleModal('engage-modal')" class="group relative inline-flex items-center justify-center px-space-lg py-space-sm bg-[#FFFFFF] text-[#0B0B0C] font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:outline hover:outline-1 hover:outline-[#00F0FF] hover:-outline-offset-2 transition-all shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(0,240,255,0.4)]">
+            <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-space-md pt-space-xs w-full sm:w-auto">
+              <button onclick="toggleModal('engage-modal')" class="group relative inline-flex items-center justify-center px-space-md sm:px-space-lg py-3 sm:py-space-sm bg-[#FFFFFF] text-[#0B0B0C] font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:outline hover:outline-1 hover:outline-[#00F0FF] hover:-outline-offset-2 transition-all shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(0,240,255,0.4)] w-full sm:w-auto">
                 <span class="flex items-center gap-space-sm">
                   Schedule Consultation
                   <span class="material-symbols-outlined text-[18px] transform transition-transform duration-200 group-hover:translate-x-1">north_east</span>
                 </span>
               </button>
 
-              <a class="inline-flex items-center gap-space-sm px-space-md py-space-sm bg-transparent border border-[#262833] text-[#FFFFFF] hover:border-[#7928CA] hover:text-[#00F0FF] hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.5)] transition-all group" href="#capabilities">
+              <a class="inline-flex items-center justify-center gap-space-sm px-space-md py-3 sm:py-space-sm bg-transparent border border-[#262833] text-[#FFFFFF] hover:border-[#7928CA] hover:text-[#00F0FF] hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.5)] transition-all group w-full sm:w-auto text-center" href="#capabilities">
                 <span class="font-label-caps text-label-caps uppercase tracking-wider">Explore Capabilities</span>
                 <span class="material-symbols-outlined text-[16px] text-[#64748B] group-hover:translate-x-1 group-hover:text-secondary-fixed-dim transition-transform">arrow_forward</span>
               </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-md mt-space-sm bg-[#121316]/90 backdrop-blur-md border border-[#262833] p-space-md shadow-sm max-w-2xl">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-space-sm pt-space-md mt-space-sm bg-[#121316]/90 backdrop-blur-md border border-[#262833] p-4 sm:p-space-md shadow-sm max-w-2xl w-full">
               <div class="flex flex-col">
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">AI & Analytics</span>
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Data-Driven Insights</span>
+                <span class="font-headline-md text-xl sm:text-headline-md text-on-surface font-semibold tracking-tight">AI & Analytics</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-outline uppercase tracking-wider">Data-Driven Insights</span>
               </div>
               <div class="flex flex-col">
-                <span class="font-headline-md text-headline-md text-secondary-fixed-dim font-semibold tracking-tight">SaaS Platforms</span>
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Cloud Multi-Tenant Apps</span>
+                <span class="font-headline-md text-xl sm:text-headline-md text-secondary-fixed-dim font-semibold tracking-tight">SaaS Platforms</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-outline uppercase tracking-wider">Cloud Multi-Tenant Apps</span>
               </div>
               <div class="flex flex-col">
-                <span class="font-headline-md text-headline-md text-primary font-semibold tracking-tight">Mobile Apps</span>
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">iOS & Android Solutions</span>
+                <span class="font-headline-md text-xl sm:text-headline-md text-primary font-semibold tracking-tight">Mobile Apps</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-outline uppercase tracking-wider">iOS & Android Solutions</span>
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-4 flex flex-col justify-between items-start lg:items-end gap-space-md h-full py-space-md relative z-10 pointer-events-none">
+          <div class="lg:col-span-4 flex flex-col justify-between items-start lg:items-end gap-2.5 sm:gap-space-md h-full py-2 sm:py-space-md relative z-10 pointer-events-none mt-4 lg:mt-0">
             <div class="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 pointer-events-auto shadow-sm">
               <span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full animate-ping"></span>
-              <span class="font-label-mono text-label-mono text-outline tracking-widest">[SPECIALIZATION: AI // SAAS // MOBILE]</span>
+              <span class="font-label-mono text-[10px] sm:text-label-mono text-outline tracking-widest">[SPECIALIZATION: AI // SAAS // MOBILE]</span>
             </div>
             <div class="flex items-center gap-space-xs px-3 py-1.5 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 pointer-events-auto shadow-sm">
-              <span class="font-label-mono text-label-mono text-secondary-fixed-dim tracking-wider font-semibold">STATUS: READY FOR ENGAGEMENT</span>
+              <span class="font-label-mono text-[10px] sm:text-label-mono text-secondary-fixed-dim tracking-wider font-semibold">STATUS: READY FOR ENGAGEMENT</span>
             </div>
             <div class="flex items-center gap-space-sm px-3.5 py-2 bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/30 shadow-md pointer-events-auto">
               <div class="flex items-center gap-1.5">
                 <span class="w-2 h-2 bg-primary rounded-full"></span>
-                <span class="font-label-mono text-label-mono text-on-surface">APF IT CONSULTING</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-on-surface">APF IT CONSULTING</span>
               </div>
               <span class="text-outline text-label-mono">//</span>
-              <span class="font-label-mono text-label-mono text-secondary-fixed-dim">END-TO-END</span>
+              <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary-fixed-dim">END-TO-END</span>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ==================== SECTION 2: CORE CAPABILITIES ==================== -->
-      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl" id="capabilities">
-        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+      <section class="relative w-full bg-surface px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl" id="capabilities">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl lg:gap-space-2xl">
           <div class="flex items-center gap-space-sm">
             <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
             <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">01 / WHAT WE DO</span>
           </div>
 
           <div class="max-w-4xl">
-            <h2 class="font-headline-xl text-headline-xl leading-snug tracking-tight">
+            <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl leading-snug tracking-tight">
               <span class="text-on-surface font-semibold">HELPING BUSINESSES MODERNIZE</span>
               <span class="text-outline"> AND MAXIMIZE VALUE FROM </span>
               <span class="bg-gradient-to-r from-secondary-fixed-dim via-primary to-primary-container bg-clip-text text-transparent font-bold">DATA, AI & CLOUD SOFTWARE.</span>
             </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant pt-space-sm">
+            <p class="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant pt-space-sm">
               Through innovative technologies and strategic insights, we empower businesses to make data-driven decisions, improve operational efficiency, uncover growth opportunities, and achieve sustainable competitive advantage.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg pt-space-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-space-lg pt-space-sm">
             <!-- Pillar 01: AI Solutions -->
-            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+            <div class="group relative flex flex-col justify-between p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
               <div class="flex flex-col gap-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim tracking-wider">[ARTIFICIAL INTELLIGENCE]</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary-fixed-dim tracking-wider">[ARTIFICIAL INTELLIGENCE]</span>
                   <span class="font-headline-sm text-headline-sm text-outline group-hover:text-secondary-fixed-dim transition-colors">01</span>
                 </div>
                 <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-secondary-fixed-dim/20 transition-colors">
                   <span class="material-symbols-outlined text-[28px] text-secondary group-hover:text-secondary-fixed-dim transition-colors">smart_toy</span>
                 </div>
-                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-secondary transition-colors">AI Solutions</h3>
+                <h3 class="font-headline-lg text-xl sm:text-2xl lg:text-headline-lg text-on-surface group-hover:text-secondary transition-colors">AI Solutions</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   We integrate practical AI into your everyday business operations—automating repetitive tasks, building intelligent assistants, and generating predictive models.
                 </p>
-                <ul class="space-y-1.5 pt-space-xs font-label-mono text-label-mono text-outline">
+                <ul class="space-y-1.5 pt-space-xs font-label-mono text-[11px] sm:text-label-mono text-outline">
                   <li class="flex items-center gap-2">
                     <span class="w-1 h-1 bg-secondary-fixed-dim"></span>
                     <span>Custom LLM & Generative AI workflows</span>
@@ -556,26 +589,26 @@
                 </ul>
               </div>
               <div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 p-space-sm flex items-center justify-between border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-secondary font-semibold">Intelligent Automation</span>
-                <span class="font-label-mono text-label-mono text-outline tracking-wider">// Practical ROI</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary font-semibold">Intelligent Automation</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-outline tracking-wider">// Practical ROI</span>
               </div>
             </div>
 
             <!-- Pillar 02: Data Analytics -->
-            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+            <div class="group relative flex flex-col justify-between p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
               <div class="flex flex-col gap-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-tertiary tracking-wider">[DATA & BUSINESS INTELLIGENCE]</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-tertiary tracking-wider">[DATA & BUSINESS INTELLIGENCE]</span>
                   <span class="font-headline-sm text-headline-sm text-outline group-hover:text-primary transition-colors">02</span>
                 </div>
                 <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <span class="material-symbols-outlined text-[28px] text-primary group-hover:text-primary-fixed-dim transition-colors">analytics</span>
                 </div>
-                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors">Data Analytics</h3>
+                <h3 class="font-headline-lg text-xl sm:text-2xl lg:text-headline-lg text-on-surface group-hover:text-primary transition-colors">Data Analytics</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   We turn messy, fragmented company data into unified reporting pipelines and interactive executive dashboards that guide smarter business decisions.
                 </p>
-                <ul class="space-y-1.5 pt-space-xs font-label-mono text-label-mono text-outline">
+                <ul class="space-y-1.5 pt-space-xs font-label-mono text-[11px] sm:text-label-mono text-outline">
                   <li class="flex items-center gap-2">
                     <span class="w-1 h-1 bg-primary"></span>
                     <span>Modern data warehousing & ETL pipelines</span>
@@ -591,22 +624,22 @@
                 </ul>
               </div>
               <div class="mt-space-lg pt-space-md bg-surface-container-lowest/60 p-space-sm flex items-center justify-between border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-primary font-semibold">Unified Visibility</span>
-                <span class="font-label-mono text-label-mono text-outline tracking-wider">// Single Source of Truth</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-primary font-semibold">Unified Visibility</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono text-outline tracking-wider">// Single Source of Truth</span>
               </div>
             </div>
 
             <!-- Pillar 03: SaaS & Mobile Apps -->
-            <div class="group relative flex flex-col justify-between p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
+            <div class="group relative flex flex-col justify-between p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)]">
               <div class="flex flex-col gap-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-primary-fixed-dim tracking-wider">[SAAS & MOBILE APPS]</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-primary-fixed-dim tracking-wider">[SAAS & MOBILE APPS]</span>
                   <span class="font-headline-sm text-headline-sm text-outline group-hover:text-primary-fixed transition-colors">03</span>
                 </div>
                 <div class="w-12 h-12 bg-surface-container flex items-center justify-center group-hover:bg-primary-container/40 transition-colors">
                   <span class="material-symbols-outlined text-[28px] text-primary-fixed group-hover:text-primary transition-colors">devices</span>
                 </div>
-                <h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary-fixed-dim transition-colors">SaaS & Mobile Apps</h3>
+                <h3 class="font-headline-lg text-xl sm:text-2xl lg:text-headline-lg text-on-surface group-hover:text-primary-fixed-dim transition-colors">SaaS & Mobile Apps</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   We design, build, and deploy custom software products from the ground up—including multi-tenant SaaS platforms, web apps, and native iOS & Android applications.
                 </p>
@@ -635,144 +668,144 @@
       </section>
 
       <!-- ==================== SECTION 3: SOLUTIONS & CASE STUDIES ==================== -->
-      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl overflow-hidden" id="case-studies">
+      <section class="relative w-full bg-surface-container-lowest px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl overflow-hidden" id="case-studies">
         <div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-space-lg">
             <div class="space-y-2">
               <div class="flex items-center gap-space-sm">
                 <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
-                <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">02 / REPRESENTATIVE CLIENT SOLUTIONS</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono uppercase tracking-widest text-outline">02 / REPRESENTATIVE CLIENT SOLUTIONS</span>
               </div>
-              <h2 class="font-headline-xl text-headline-xl text-on-surface">Proven Solutions Across Industries</h2>
+              <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl text-on-surface">Proven Solutions Across Industries</h2>
               <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
                 See how we help organizations turn complex challenges into reliable, high-performance technology solutions.
               </p>
             </div>
 
-            <div class="flex items-center gap-space-md">
-              <div class="flex items-center gap-space-sm bg-surface-container px-space-md py-2 border border-[#262833]">
-                <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-semibold tracking-widest" id="case-indicator">01 / 04</span>
-                <div class="w-24 h-[1px] bg-[#262833] overflow-hidden">
+            <div class="flex items-center gap-3 sm:gap-space-md">
+              <div class="flex items-center gap-space-sm bg-surface-container px-3 sm:px-space-md py-1.5 sm:py-2 border border-[#262833]">
+                <span class="font-label-mono text-xs sm:text-label-mono text-secondary-fixed-dim font-semibold tracking-widest" id="case-indicator">01 / 04</span>
+                <div class="w-16 sm:w-24 h-[1px] bg-[#262833] overflow-hidden">
                   <div class="w-1/4 h-full bg-gradient-to-r from-[#00F0FF] via-[#6366F1] to-[#7928CA] transition-all duration-300" id="scroll-progress-bar"></div>
                 </div>
               </div>
               <div class="flex items-center gap-1">
-                <button aria-label="Previous Study" class="w-10 h-10 bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-secondary flex items-center justify-center transition-colors border border-[#262833]" id="case-prev">
-                  <span class="material-symbols-outlined text-[20px]">west</span>
+                <button aria-label="Previous Study" class="w-9 h-9 sm:w-10 sm:h-10 bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-secondary flex items-center justify-center transition-colors border border-[#262833]" id="case-prev">
+                  <span class="material-symbols-outlined text-[18px] sm:text-[20px]">west</span>
                 </button>
-                <button aria-label="Next Study" class="w-10 h-10 bg-surface-container hover:bg-secondary-fixed-dim text-on-surface hover:text-[#0B0B0C] flex items-center justify-center transition-colors border border-[#262833]" id="case-next">
-                  <span class="material-symbols-outlined text-[20px]">east</span>
+                <button aria-label="Next Study" class="w-9 h-9 sm:w-10 sm:h-10 bg-surface-container hover:bg-secondary-fixed-dim text-on-surface hover:text-[#0B0B0C] flex items-center justify-center transition-colors border border-[#262833]" id="case-next">
+                  <span class="material-symbols-outlined text-[18px] sm:text-[20px]">east</span>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-space-lg pb-space-sm scroll-smooth" id="case-scroll-container">
+          <div class="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-4 sm:gap-space-lg pb-space-sm scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0" id="case-scroll-container">
             <!-- Card 1 -->
-            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+            <div class="snap-start shrink-0 w-[84vw] max-w-[380px] sm:w-[380px] lg:w-[460px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-5 sm:p-6 lg:p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between text-outline">
-                  <span class="font-label-mono text-label-mono tracking-widest">FINANCIAL SERVICES</span>
-                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim">DATA ANALYTICS</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono tracking-widest">FINANCIAL SERVICES</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono text-secondary-fixed-dim">DATA ANALYTICS</span>
                 </div>
-                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                <div class="h-40 sm:h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
                   <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Executive financial reporting dashboards" src="images/image_2.png"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Unified Financial Analytics Pipeline</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface group-hover:text-secondary transition-colors">Unified Financial Analytics Pipeline</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Consolidated multi-entity transactional data into automated ETL pipelines and real-time PowerBI/Tableau dashboards for leadership reporting.
                 </p>
                 <div class="flex flex-wrap gap-1.5 pt-space-xs">
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[DATA PIPELINES]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[EXECUTIVE BI]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTOMATED REPORTING]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[DATA PIPELINES]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[EXECUTIVE BI]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[AUTOMATED REPORTING]</span>
                 </div>
               </div>
-              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
-                <span class="font-headline-lg text-headline-lg text-secondary font-bold tracking-tight">85% Faster Month-End Close</span>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-3.5 sm:p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-lg sm:text-xl lg:text-headline-lg text-secondary font-bold tracking-tight">85% Faster Month-End Close</span>
               </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+            <div class="snap-start shrink-0 w-[84vw] max-w-[380px] sm:w-[380px] lg:w-[460px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-5 sm:p-6 lg:p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between text-outline">
-                  <span class="font-label-mono text-label-mono tracking-widest">LOGISTICS & SUPPLY CHAIN</span>
-                  <span class="font-label-mono text-label-mono text-primary">CUSTOM SAAS</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono tracking-widest">LOGISTICS & SUPPLY CHAIN</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono text-primary">CUSTOM SAAS</span>
                 </div>
-                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                <div class="h-40 sm:h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
                   <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Supply chain logistics SaaS" src="images/image_3.png"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">B2B Vendor Management SaaS Platform</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface group-hover:text-primary transition-colors">B2B Vendor Management SaaS Platform</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Architected and deployed a multi-tenant cloud application connecting suppliers, inventory tracking, and purchase order approvals.
                 </p>
                 <div class="flex flex-wrap gap-1.5 pt-space-xs">
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[MULTI-TENANT SAAS]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[CLOUD ARCHITECTURE]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTOMATED WORKFLOWS]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[MULTI-TENANT SAAS]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[CLOUD ARCHITECTURE]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[AUTOMATED WORKFLOWS]</span>
                 </div>
               </div>
-              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
-                <span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">4x Faster Partner Onboarding</span>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-3.5 sm:p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-lg sm:text-xl lg:text-headline-lg text-primary font-bold tracking-tight">4x Faster Partner Onboarding</span>
               </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+            <div class="snap-start shrink-0 w-[84vw] max-w-[380px] sm:w-[380px] lg:w-[460px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-5 sm:p-6 lg:p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between text-outline">
-                  <span class="font-label-mono text-label-mono tracking-widest">HEALTHCARE SERVICES</span>
-                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim">AI AUTOMATION</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono tracking-widest">HEALTHCARE SERVICES</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono text-secondary-fixed-dim">AI AUTOMATION</span>
                 </div>
-                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                <div class="h-40 sm:h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
                   <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Clinical document automation" src="images/image_4.png"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">AI-Powered Patient Intake & Records</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface group-hover:text-secondary transition-colors">AI-Powered Patient Intake & Records</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Implemented an intelligent document processing engine that extracts, classifies, and verifies medical intake records into electronic health databases.
                 </p>
                 <div class="flex flex-wrap gap-1.5 pt-space-xs">
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[INTELLIGENT OCR]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[SECURE COMPLIANCE]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[AUTO-CLASSIFICATION]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[INTELLIGENT OCR]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[SECURE COMPLIANCE]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[AUTO-CLASSIFICATION]</span>
                 </div>
               </div>
-              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
-                <span class="font-headline-lg text-headline-lg text-secondary-fixed-dim font-bold tracking-tight">70% Less Manual Entry Time</span>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-3.5 sm:p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-lg sm:text-xl lg:text-headline-lg text-secondary-fixed-dim font-bold tracking-tight">70% Less Manual Entry Time</span>
               </div>
             </div>
 
             <!-- Card 4 -->
-            <div class="snap-start shrink-0 w-[420px] lg:w-[480px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
+            <div class="snap-start shrink-0 w-[84vw] max-w-[380px] sm:w-[380px] lg:w-[460px] bg-[#121316] border border-[#262833] hover:border-[#7928CA] p-5 sm:p-6 lg:p-space-xl flex flex-col justify-between shadow-lg hover:shadow-[0_0_30px_-10px_rgba(121,40,202,0.35)] relative group transition-all duration-300">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between text-outline">
-                  <span class="font-label-mono text-label-mono tracking-widest">FIELD SERVICES & UTILITIES</span>
-                  <span class="font-label-mono text-label-mono text-primary">MOBILE APPLICATION</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono tracking-widest">FIELD SERVICES & UTILITIES</span>
+                  <span class="font-label-mono text-[10px] sm:text-label-mono text-primary">MOBILE APPLICATION</span>
                 </div>
-                <div class="h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
+                <div class="h-40 sm:h-44 w-full bg-surface-container-low overflow-hidden relative border border-[#262833]">
                   <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="Field operations mobile app" src="images/image_5.png"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-[#121316] via-transparent to-transparent"></div>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Cross-Platform Field Operations App</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface group-hover:text-primary transition-colors">Cross-Platform Field Operations App</h3>
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   Developed iOS and Android mobile applications with offline synchronization, real-time GPS dispatching, and field work order completions.
                 </p>
                 <div class="flex flex-wrap gap-1.5 pt-space-xs">
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[IOS & ANDROID]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[OFFLINE-FIRST]</span>
-                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-label-mono text-[#94A3B8]">[REAL-TIME SYNC]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[IOS & ANDROID]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[OFFLINE-FIRST]</span>
+                  <span class="px-2 py-1 bg-[#18191E] border border-[#262833] font-label-mono text-[10px] sm:text-label-mono text-[#94A3B8]">[REAL-TIME SYNC]</span>
                 </div>
               </div>
-              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-space-md flex flex-col border border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
-                <span class="font-headline-lg text-headline-lg text-primary-fixed-dim font-bold tracking-tight">Zero Lost Field Reports</span>
+              <div class="mt-space-lg pt-space-md bg-surface-container-lowest p-3.5 sm:p-space-md flex flex-col border border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase tracking-wider">Business Impact</span>
+                <span class="font-headline-lg text-lg sm:text-xl lg:text-headline-lg text-primary-fixed-dim font-bold tracking-tight">Zero Lost Field Reports</span>
               </div>
             </div>
           </div>
@@ -780,75 +813,75 @@
       </section>
 
       <!-- ==================== SECTION 4: TECH STACK ==================== -->
-      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl border-t border-[#262833]" id="tech-stack">
-        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+      <section class="relative w-full bg-surface px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl border-t border-[#262833]" id="tech-stack">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl lg:gap-space-2xl">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
             <div class="space-y-2">
               <div class="flex items-center gap-space-sm">
                 <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
-                <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">03 / TECHNOLOGY STACK</span>
+                <span class="font-label-mono text-[11px] sm:text-label-mono uppercase tracking-widest text-outline">03 / TECHNOLOGY STACK</span>
               </div>
-              <h2 class="font-headline-xl text-headline-xl text-on-surface">Modern Tools We Build With</h2>
+              <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl text-on-surface">Modern Tools We Build With</h2>
               <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
                 We leverage reliable, battle-tested modern technology frameworks to ensure high performance, security, and long-term maintainability.
               </p>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-space-md">
             <!-- Tech category 1: AI & ML -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-[#7928CA] transition-all">
               <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
                 <span class="material-symbols-outlined text-secondary-fixed-dim text-[24px]">psychology</span>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">AI & Machine Learning</h4>
+                <h4 class="font-headline-sm text-base sm:text-headline-sm text-on-surface font-semibold">AI & Machine Learning</h4>
               </div>
-              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
-                <li class="flex items-center justify-between"><span>OpenAI & Anthropic APIs</span><span class="text-outline">LLMs</span></li>
-                <li class="flex items-center justify-between"><span>LangChain & LlamaIndex</span><span class="text-outline">RAG</span></li>
-                <li class="flex items-center justify-between"><span>Python & PyTorch</span><span class="text-outline">Modeling</span></li>
-                <li class="flex items-center justify-between"><span>HuggingFace Models</span><span class="text-outline">Custom</span></li>
+              <ul class="space-y-2 pt-space-md font-label-mono text-[11px] sm:text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between gap-2"><span>OpenAI & Anthropic APIs</span><span class="text-outline shrink-0">LLMs</span></li>
+                <li class="flex items-center justify-between gap-2"><span>LangChain & LlamaIndex</span><span class="text-outline shrink-0">RAG</span></li>
+                <li class="flex items-center justify-between gap-2"><span>Python & PyTorch</span><span class="text-outline shrink-0">Modeling</span></li>
+                <li class="flex items-center justify-between gap-2"><span>HuggingFace Models</span><span class="text-outline shrink-0">Custom</span></li>
               </ul>
             </div>
 
             <!-- Tech category 2: Data & Cloud -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-primary transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-primary transition-all">
               <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
                 <span class="material-symbols-outlined text-primary text-[24px]">database</span>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Data & Cloud</h4>
+                <h4 class="font-headline-sm text-base sm:text-headline-sm text-on-surface font-semibold">Data & Cloud</h4>
               </div>
-              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
-                <li class="flex items-center justify-between"><span>PostgreSQL & Supabase</span><span class="text-outline">Relational</span></li>
-                <li class="flex items-center justify-between"><span>Snowflake & BigQuery</span><span class="text-outline">Warehousing</span></li>
-                <li class="flex items-center justify-between"><span>AWS / Google Cloud / Azure</span><span class="text-outline">Cloud</span></li>
-                <li class="flex items-center justify-between"><span>Docker & Terraform</span><span class="text-outline">DevOps</span></li>
+              <ul class="space-y-2 pt-space-md font-label-mono text-[11px] sm:text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between gap-2"><span>PostgreSQL & Supabase</span><span class="text-outline shrink-0">Relational</span></li>
+                <li class="flex items-center justify-between gap-2"><span>Snowflake & BigQuery</span><span class="text-outline shrink-0">Warehousing</span></li>
+                <li class="flex items-center justify-between gap-2"><span>AWS / Google Cloud / Azure</span><span class="text-outline shrink-0">Cloud</span></li>
+                <li class="flex items-center justify-between gap-2"><span>Docker & Terraform</span><span class="text-outline shrink-0">DevOps</span></li>
               </ul>
             </div>
 
             <!-- Tech category 3: Web & SaaS -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-secondary-fixed-dim transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-secondary-fixed-dim transition-all">
               <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
                 <span class="material-symbols-outlined text-secondary-fixed-dim text-[24px]">web</span>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Web & SaaS Platforms</h4>
+                <h4 class="font-headline-sm text-base sm:text-headline-sm text-on-surface font-semibold">Web & SaaS Platforms</h4>
               </div>
-              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
-                <li class="flex items-center justify-between"><span>React & Next.js</span><span class="text-outline">Frontend</span></li>
-                <li class="flex items-center justify-between"><span>TypeScript & Node.js</span><span class="text-outline">Backend</span></li>
-                <li class="flex items-center justify-between"><span>Tailwind CSS</span><span class="text-outline">Styling</span></li>
-                <li class="flex items-center justify-between"><span>REST & GraphQL APIs</span><span class="text-outline">Services</span></li>
+              <ul class="space-y-2 pt-space-md font-label-mono text-[11px] sm:text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between gap-2"><span>React & Next.js</span><span class="text-outline shrink-0">Frontend</span></li>
+                <li class="flex items-center justify-between gap-2"><span>TypeScript & Node.js</span><span class="text-outline shrink-0">Backend</span></li>
+                <li class="flex items-center justify-between gap-2"><span>Tailwind CSS</span><span class="text-outline shrink-0">Styling</span></li>
+                <li class="flex items-center justify-between gap-2"><span>REST & GraphQL APIs</span><span class="text-outline shrink-0">Services</span></li>
               </ul>
             </div>
 
             <!-- Tech category 4: Mobile Apps -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] hover:border-primary-fixed-dim transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] hover:border-primary-fixed-dim transition-all">
               <div class="flex items-center gap-space-sm pb-space-sm border-b border-[#262833]">
                 <span class="material-symbols-outlined text-primary-fixed-dim text-[24px]">phone_iphone</span>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Mobile Applications</h4>
+                <h4 class="font-headline-sm text-base sm:text-headline-sm text-on-surface font-semibold">Mobile Applications</h4>
               </div>
-              <ul class="space-y-2 pt-space-md font-label-mono text-label-mono text-on-surface-variant">
-                <li class="flex items-center justify-between"><span>Flutter & Dart</span><span class="text-outline">Cross-Platform</span></li>
-                <li class="flex items-center justify-between"><span>React Native</span><span class="text-outline">Cross-Platform</span></li>
-                <li class="flex items-center justify-between"><span>iOS (Swift)</span><span class="text-outline">Native</span></li>
-                <li class="flex items-center justify-between"><span>Android (Kotlin)</span><span class="text-outline">Native</span></li>
+              <ul class="space-y-2 pt-space-md font-label-mono text-[11px] sm:text-label-mono text-on-surface-variant">
+                <li class="flex items-center justify-between gap-2"><span>Flutter & Dart</span><span class="text-outline shrink-0">Cross-Platform</span></li>
+                <li class="flex items-center justify-between gap-2"><span>React Native</span><span class="text-outline shrink-0">Cross-Platform</span></li>
+                <li class="flex items-center justify-between gap-2"><span>iOS (Swift)</span><span class="text-outline shrink-0">Native</span></li>
+                <li class="flex items-center justify-between gap-2"><span>Android (Kotlin)</span><span class="text-outline shrink-0">Native</span></li>
               </ul>
             </div>
           </div>
@@ -856,90 +889,90 @@
       </section>
 
       <!-- ==================== SECTION 5: METHODOLOGY ==================== -->
-      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl border-t border-[#262833]" id="methodology">
-        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
+      <section class="relative w-full bg-surface-container-lowest px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl border-t border-[#262833]" id="methodology">
+        <div class="max-w-[1720px] mx-auto flex flex-col gap-space-xl lg:gap-space-2xl">
           <div class="flex items-center gap-space-sm">
             <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
-            <span class="font-label-mono text-label-mono uppercase tracking-widest text-outline">04 / HOW WE WORK</span>
+            <span class="font-label-mono text-[11px] sm:text-label-mono uppercase tracking-widest text-outline">04 / HOW WE WORK</span>
           </div>
 
           <div class="max-w-4xl">
-            <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Our 4-Step Engagement Process</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant pt-2">
+            <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl text-on-surface tracking-tight">Our 4-Step Engagement Process</h2>
+            <p class="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant pt-2">
               From initial discovery through delivery and ongoing support, we work hand-in-hand with your team to deliver results on time and on budget.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md pt-space-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-space-md pt-space-xs sm:pt-space-md">
             <!-- Step 1 -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-bold">STEP 01</span>
-                  <span class="font-label-mono text-label-mono text-outline">DISCOVERY</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary-fixed-dim font-bold">STEP 01</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-outline">DISCOVERY</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Discovery & Assessment</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface font-semibold">Discovery & Assessment</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">
                   We audit your current data, workflows, and business goals to determine high-impact opportunities for automation, analytics, or custom software.
                 </p>
               </div>
-              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
-                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Technical Roadmap & Scope</span>
+              <div class="pt-space-md sm:pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-xs sm:text-label-mono text-on-surface font-semibold">Technical Roadmap & Scope</span>
               </div>
             </div>
 
             <!-- Step 2 -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary transition-all">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-primary font-bold">STEP 02</span>
-                  <span class="font-label-mono text-label-mono text-outline">DESIGN</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-primary font-bold">STEP 02</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-outline">DESIGN</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Architecture & Prototyping</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface font-semibold">Architecture & Prototyping</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">
                   We craft system architecture blueprints, UI/UX wireframes, database schemas, and AI integration plans so you can visualize the final product.
                 </p>
               </div>
-              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
-                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Interactive Prototype & Architecture</span>
+              <div class="pt-space-md sm:pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-xs sm:text-label-mono text-on-surface font-semibold">Interactive Prototype & Architecture</span>
               </div>
             </div>
 
             <!-- Step 3 -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-secondary-fixed-dim transition-all">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-secondary-fixed-dim font-bold">STEP 03</span>
-                  <span class="font-label-mono text-label-mono text-outline">DEVELOPMENT</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-secondary-fixed-dim font-bold">STEP 03</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-outline">DEVELOPMENT</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Agile Engineering Sprints</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface font-semibold">Agile Engineering Sprints</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">
                   We build in rapid, transparent 2-week iterations with continuous demos, rigorous code reviews, automated tests, and clear milestones.
                 </p>
               </div>
-              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
-                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Production-Ready Software</span>
+              <div class="pt-space-md sm:pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-xs sm:text-label-mono text-on-surface font-semibold">Production-Ready Software</span>
               </div>
             </div>
 
             <!-- Step 4 -->
-            <div class="p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary-fixed-dim transition-all">
+            <div class="p-5 sm:p-6 lg:p-space-xl bg-[#121316] border border-[#262833] relative flex flex-col justify-between group hover:border-primary-fixed-dim transition-all">
               <div class="space-y-space-md">
                 <div class="flex items-center justify-between">
-                  <span class="font-label-mono text-label-mono text-primary-fixed-dim font-bold">STEP 04</span>
-                  <span class="font-label-mono text-label-mono text-outline">SUPPORT</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-primary-fixed-dim font-bold">STEP 04</span>
+                  <span class="font-label-mono text-[11px] sm:text-label-mono text-outline">SUPPORT</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Deployment & Handover</h3>
+                <h3 class="font-headline-md text-lg sm:text-headline-md text-on-surface font-semibold">Deployment & Handover</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">
                   We deploy to your secure cloud infrastructure, train your internal team, provide full documentation, and offer ongoing maintenance support.
                 </p>
               </div>
-              <div class="pt-space-lg mt-space-md border-t border-[#262833]">
-                <span class="font-label-mono text-label-mono text-outline uppercase block">Deliverable</span>
-                <span class="font-label-mono text-label-mono text-on-surface font-semibold">Full IP Ownership & Support</span>
+              <div class="pt-space-md sm:pt-space-lg mt-space-md border-t border-[#262833]">
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline uppercase block">Deliverable</span>
+                <span class="font-label-mono text-xs sm:text-label-mono text-on-surface font-semibold">Full IP Ownership & Support</span>
               </div>
             </div>
           </div>
@@ -947,7 +980,7 @@
       </section>
 
       <!-- ==================== SECTION 6: ABOUT US ==================== -->
-      <section class="relative w-full bg-surface px-gutter-desktop py-space-3xl border-t border-[#262833]" id="about">
+      <section class="relative w-full bg-surface px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl border-t border-[#262833]" id="about">
         <div class="max-w-[1720px] mx-auto flex flex-col gap-space-2xl">
           <div class="flex items-center gap-space-sm">
             <span class="text-secondary-fixed-dim font-label-mono text-label-mono font-bold">+</span>
@@ -956,8 +989,8 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
             <div class="lg:col-span-6 space-y-space-md">
-              <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Your Trusted Technology & Data Consulting Partner</h2>
-              <p class="font-body-lg text-body-lg text-on-surface-variant">
+              <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl text-on-surface tracking-tight">Your Trusted Technology & Data Consulting Partner</h2>
+              <p class="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant">
                 APF IT Consulting is a technology consulting firm specializing in Artificial Intelligence (AI), Data Analytics, and Digital Transformation solutions.
               </p>
               <p class="font-body-md text-body-md text-on-surface-variant">
@@ -967,7 +1000,7 @@
 
             <!-- Pillars of Commitment -->
             <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+              <div class="p-4 sm:p-5 lg:p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
                 <div class="space-y-space-xs">
                   <span class="material-symbols-outlined text-secondary-fixed-dim text-[28px]">data_thresholding</span>
                   <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Data-Driven Value</h4>
@@ -975,10 +1008,10 @@
                     We turn dormant data assets into clear decision engines that drive measurable bottom-line growth.
                   </p>
                 </div>
-                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// BUSINESS INTELLIGENCE</span>
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline pt-space-md uppercase">// BUSINESS INTELLIGENCE</span>
               </div>
 
-              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+              <div class="p-4 sm:p-5 lg:p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
                 <div class="space-y-space-xs">
                   <span class="material-symbols-outlined text-primary text-[28px]">code</span>
                   <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">End-to-End Development</h4>
@@ -986,10 +1019,10 @@
                     From concept and architecture to production deployment of SaaS and iOS/Android applications.
                   </p>
                 </div>
-                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// FULL-STACK ENGINEERING</span>
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline pt-space-md uppercase">// FULL-STACK ENGINEERING</span>
               </div>
 
-              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+              <div class="p-4 sm:p-5 lg:p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
                 <div class="space-y-space-xs">
                   <span class="material-symbols-outlined text-secondary-fixed-dim text-[28px]">handshake</span>
                   <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Collaborative Partnership</h4>
@@ -997,10 +1030,10 @@
                     We work directly with your stakeholders with transparent communication, frequent demos, and zero bureaucracy.
                   </p>
                 </div>
-                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// AGILE COLLABORATION</span>
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline pt-space-md uppercase">// AGILE COLLABORATION</span>
               </div>
 
-              <div class="p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
+              <div class="p-4 sm:p-5 lg:p-space-lg bg-[#121316] border border-[#262833] flex flex-col justify-between">
                 <div class="space-y-space-xs">
                   <span class="material-symbols-outlined text-primary text-[28px]">verified_user</span>
                   <h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Complete IP Ownership</h4>
@@ -1008,7 +1041,7 @@
                     You own 100% of the code, data pipelines, and infrastructure built during our engagement.
                   </p>
                 </div>
-                <span class="font-label-mono text-label-mono text-outline pt-space-md uppercase">// CLIENT-OWNED INTELLECTUAL PROPERTY</span>
+                <span class="font-label-mono text-[10px] sm:text-label-mono text-outline pt-space-md uppercase">// CLIENT-OWNED INTELLECTUAL PROPERTY</span>
               </div>
             </div>
           </div>
@@ -1016,9 +1049,9 @@
       </section>
 
       <!-- ==================== SECTION 7: CALL TO ACTION BLOCK ==================== -->
-      <section class="relative w-full bg-surface-container-lowest px-gutter-desktop py-space-3xl overflow-hidden border-t border-[#262833]">
+      <section class="relative w-full bg-surface-container-lowest px-4 sm:px-6 md:px-8 lg:px-gutter-desktop py-16 sm:py-20 lg:py-space-3xl overflow-hidden border-t border-[#262833]">
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div class="w-[600px] h-[300px] bg-gradient-to-r from-secondary-fixed-dim/20 via-primary-container/25 to-primary/20 blur-[130px] rounded-full"></div>
+          <div class="w-[600px] max-w-full h-[300px] bg-gradient-to-r from-secondary-fixed-dim/20 via-primary-container/25 to-primary/20 blur-[130px] rounded-full"></div>
         </div>
         <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center gap-space-lg">
           <div class="inline-flex items-center gap-space-sm px-space-md py-1 bg-surface-container border border-[#262833]">
@@ -1026,7 +1059,7 @@
             <span class="font-label-mono text-label-mono text-on-surface uppercase tracking-widest">START YOUR DIGITAL TRANSFORMATION TODAY</span>
           </div>
 
-          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight max-w-2xl">
+          <h2 class="font-headline-xl text-2xl sm:text-3xl lg:text-headline-xl text-on-surface tracking-tight max-w-2xl">
             Ready to Build Your Next Solution or Modernize Your Data?
           </h2>
 
@@ -1052,7 +1085,7 @@
             </a>
           </div>
 
-          <div class="pt-space-md flex items-center gap-space-md font-label-mono text-label-mono text-outline uppercase tracking-widest">
+          <div class="pt-space-md flex flex-wrap justify-center items-center gap-2 sm:gap-space-md font-label-mono text-[10px] sm:text-label-mono text-outline uppercase tracking-widest text-center">
             <span>CONSULTING</span>
             <span>//</span>
             <span>AI & DATA ANALYTICS</span>
@@ -1066,9 +1099,9 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 pt-space-2xl pb-space-xl">
-    <div class="w-full px-gutter-desktop mx-auto">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-space-lg mb-space-xl border-b border-outline-variant/20 gap-space-md">
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 pt-12 sm:pt-space-2xl pb-8 sm:pb-space-xl">
+    <div class="w-full px-4 sm:px-6 md:px-8 lg:px-gutter-desktop mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-4 sm:pb-space-lg mb-8 sm:mb-space-xl border-b border-outline-variant/20 gap-3 sm:gap-space-md">
         <div class="flex items-center gap-space-sm font-label-mono text-label-mono text-outline uppercase tracking-widest">
           <span class="text-secondary-fixed-dim">+</span>
           <span>APF IT CONSULTING // TECHNOLOGY & DATA SOLUTIONS</span>
@@ -1080,7 +1113,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-2xl">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-space-xl mb-10 sm:mb-space-2xl">
         <div class="space-y-space-sm">
           <div class="font-label-caps text-label-caps text-on-surface font-semibold uppercase tracking-wider">Services</div>
           <ul class="space-y-space-xs font-label-mono text-label-mono">
@@ -1133,7 +1166,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between pt-space-lg border-t border-outline-variant/20 gap-space-md font-label-mono text-label-mono text-outline">
+      <div class="flex flex-col md:flex-row items-center justify-between pt-6 sm:pt-space-lg border-t border-outline-variant/20 gap-4 sm:gap-space-md font-label-mono text-[11px] sm:text-label-mono text-outline text-center md:text-left">
         <div class="flex items-center gap-space-md">
           <img alt="APF IT Monogram" class="h-6 w-6 object-contain inline-block" src="images/apf_monogram_transparent.png"/>
           <span>© 2025 APF IT CONSULTING. ALL RIGHTS RESERVED.</span>
@@ -1148,8 +1181,8 @@
   </footer>
 
   <!-- ==================== MODAL: CONSULTATION ==================== -->
-  <div id="engage-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0B0C]/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="relative w-full max-w-2xl bg-[#121316] border border-[#262833] shadow-[0_0_50px_rgba(0,240,255,0.15)] p-space-xl flex flex-col gap-space-lg">
+  <div id="engage-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#0B0B0C]/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-[#121316] border border-[#262833] shadow-[0_0_50px_rgba(0,240,255,0.15)] p-4 sm:p-6 lg:p-space-xl flex flex-col gap-4 sm:gap-space-lg">
       <div class="flex items-center justify-between border-b border-[#262833] pb-space-sm">
         <div class="flex items-center gap-2 font-label-mono text-label-mono text-secondary-fixed-dim uppercase tracking-widest">
           <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-status-pulse"></span>
@@ -1233,6 +1266,50 @@
       toggleModal('engage-modal');
     }
 
+    function toggleMobileMenu() {
+      const panel = document.getElementById('mobile-nav-panel');
+      const icon = document.getElementById('mobile-toggle-icon');
+      if (!panel) return;
+      const isHidden = panel.classList.contains('hidden');
+      if (isHidden) {
+        panel.classList.remove('hidden');
+        panel.classList.add('flex');
+        if (icon) icon.textContent = 'close';
+      } else {
+        panel.classList.remove('flex');
+        panel.classList.add('hidden');
+        if (icon) icon.textContent = 'menu';
+      }
+    }
+
+    function closeMobileMenu() {
+      const panel = document.getElementById('mobile-nav-panel');
+      const icon = document.getElementById('mobile-toggle-icon');
+      if (panel) {
+        panel.classList.remove('flex');
+        panel.classList.add('hidden');
+      }
+      if (icon) icon.textContent = 'menu';
+    }
+
+    // Close mobile menu on outside click or escape
+    document.addEventListener('click', (e) => {
+      const header = document.getElementById('site-header');
+      if (header && !header.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        const engageModal = document.getElementById('engage-modal');
+        if (engageModal && !engageModal.classList.contains('pointer-events-none')) {
+          toggleModal('engage-modal');
+        }
+      }
+    });
+
     (function initCaseStudyCarousel() {
       const container = document.getElementById('case-scroll-container');
       const prevBtn = document.getElementById('case-prev');
@@ -1242,7 +1319,16 @@
       if (!container || !prevBtn || !nextBtn) return;
 
       const totalCards = 4;
-      const cardWidth = 480;
+
+      function getStepSize() {
+        const firstCard = container.querySelector('.snap-start');
+        if (firstCard) {
+          const style = window.getComputedStyle(container);
+          const gap = parseFloat(style.columnGap || style.gap) || 16;
+          return firstCard.offsetWidth + gap;
+        }
+        return container.clientWidth * 0.85;
+      }
 
       function updateTelemetry() {
         const scrollLeft = container.scrollLeft;
@@ -1259,11 +1345,11 @@
       }
 
       nextBtn.addEventListener('click', () => {
-        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        container.scrollBy({ left: getStepSize(), behavior: 'smooth' });
       });
 
       prevBtn.addEventListener('click', () => {
-        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        container.scrollBy({ left: -getStepSize(), behavior: 'smooth' });
       });
 
       container.addEventListener('scroll', updateTelemetry, { passive: true });
